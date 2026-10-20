@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Viral Media · Inteligência artificial aplicada ao seu negócio</title>
+<meta name="description" content="Chatbots com IA para sites, aplicativos PWA, landing pages, automações com Make e scripts em Python para pequenas empresas. Projetos entregues online por Antonio Rocha.">
+<link rel="canonical" href="{{URL}}/">
+<meta name="theme-color" content="#0F2340">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Viral Media">
+<meta property="og:title" content="Viral Media · Inteligência artificial aplicada ao seu negócio">
+<meta property="og:description" content="Chatbots com IA, aplicativos PWA, landing pages e automações para pequenas empresas.">
+<meta property="og:url" content="{{URL}}/">
+<meta property="og:image" content="{{URL}}/static/og.png?v={{VERSAO}}">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR"><meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/static/favicon.png?v={{VERSAO}}">
+<link rel="apple-touch-icon" href="/static/apple-touch-icon.png?v={{VERSAO}}">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Viral Media","url":"{{URL}}/","image":"{{URL}}/static/og.png","description":"Chatbots com IA, aplicativos PWA, landing pages e automações para pequenas empresas.","founder":{"@type":"Person","name":"Antonio Rocha"},"areaServed":"BR","sameAs":["https://www.fiverr.com/antoniorochanet","https://www.upwork.com/freelancers/~011dc6dece52f38d35","https://www.freelancer.com/u/antoniorochaneto","https://www.99freelas.com.br/user/antonio-elizeu-da-rocha"]}</script>
+<style>
+:root{--navy:#0F2340;--bg:#F5F7FA;--card:#FFFFFF;--txt:#1E293B;--mut:#475569;--line:#E2E8F0;--a:#0F766E;--ah:#115E59;--acc:#2DD4BF;--sub:#C3CFDC;--out:#3A5878;--tint:#E7F1F0;--hero:linear-gradient(120deg,#0F2340 0%,#0F2E45 55%,#0E4249 100%)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.65}
+a{color:inherit}img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header.top{position:sticky;top:0;z-index:30;background:var(--navy);border-bottom:1px solid rgba(58,88,120,.5)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;text-decoration:none;color:#fff;letter-spacing:-.01em}
+.logo:before{content:"";width:24px;height:24px;border-radius:7px;background:var(--acc)}
+.nl{display:flex;gap:24px;align-items:center}
+.nl a{text-decoration:none;color:var(--sub);font-size:14.5px}.nl a:hover{color:#fff}
+.lang{border:1px solid var(--out);background:transparent;color:#fff;border-radius:8px;padding:6px 11px;cursor:pointer;font-weight:600;font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:10px;font-weight:600;text-decoration:none;font-size:15px;border:0;cursor:pointer;transition:background .15s,border-color .15s;font-family:inherit}
+.p{background:var(--a);color:#fff}.p:hover{background:var(--ah)}
+.o{border:1px solid var(--out);color:#fff;background:transparent}.o:hover{border-color:var(--sub)}
+.ol{border:1px solid var(--line);color:var(--navy);background:#fff}.ol:hover{border-color:var(--a)}
+.nl .btn{padding:9px 16px;font-size:14px;color:#fff}
+.hero{background:var(--hero);color:#fff;padding:96px 0 104px}
+.kick{color:var(--a);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+.hero .kick{color:var(--acc)}
+h1{font-size:clamp(34px,5vw,56px);line-height:1.1;letter-spacing:-.025em;margin:16px 0 20px;max-width:820px;font-weight:700}
+h1 span{color:var(--acc)}
+.lead{font-size:19px;color:var(--sub);max-width:640px;margin:0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+section{padding:96px 0}
+.alt{background:var(--card);border-block:1px solid var(--line)}
+h2{font-size:clamp(26px,3.2vw,36px);letter-spacing:-.02em;margin:10px 0 12px;line-height:1.2;font-weight:700;color:var(--navy)}
+.sub{color:var(--mut);max-width:660px;margin:0 0 44px;font-size:16.5px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.art{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px}
+.alt .art{background:var(--bg)}
+.art h3{margin:14px 0 8px;font-size:19px;color:var(--navy)}
+.art p{margin:0 0 12px;color:var(--mut);font-size:15.5px}
+.art ul{margin:0;padding-left:18px;color:var(--mut);font-size:15px}.art li{margin:4px 0}
+.art .lim{font-size:14px;border-top:1px solid var(--line);padding-top:12px;margin-top:14px;margin-bottom:0}
+.art .lim b{color:var(--txt)}
+.ic{width:42px;height:42px;border-radius:10px;background:var(--tint);color:var(--a);display:grid;place-items:center}
+.ic svg{width:21px;height:21px}
+.sv{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
+.sv h3{margin:14px 0 6px;font-size:16.5px;color:var(--navy)}.sv p{margin:0;color:var(--mut);font-size:14.5px}
+.steps .st{border-top:2px solid var(--a);padding-top:18px}
+.steps .n{font-size:13px;font-weight:700;color:var(--a)}
+.steps b{display:block;color:var(--navy);margin:4px 0;font-size:16.5px}.steps span{color:var(--mut);font-size:14.5px}
+.demo{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+.demo:hover{border-color:#B8D6D3;box-shadow:0 16px 40px -24px rgba(15,35,64,.35)}
+.demo img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:1px solid var(--line)}
+.demo div{padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px;flex:1}
+.demo h3{margin:0;font-size:18px;color:var(--navy)}.demo p{margin:0;color:var(--mut);font-size:14.5px;flex:1}
+.demo .go{color:var(--a);font-weight:600;font-size:14px;margin-top:10px}
+.about{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center}
+.about img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px;border:1px solid var(--line)}
+.about p{color:var(--mut);margin:0 0 14px;font-size:16px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.links a{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;font-size:14px;text-decoration:none;color:var(--navy);font-weight:600}
+.links a:hover{border-color:var(--a);color:var(--a)}
+.contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+.wa{background:var(--hero);color:#fff;border-radius:16px;padding:34px}
+.wa h3{margin:0 0 8px;font-size:21px}.wa p{color:var(--sub);margin:0 0 22px}
+.wa ul{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:8px;color:var(--sub);font-size:14.5px}
+.wa li:before{content:"✓";color:var(--acc);font-weight:700;margin-right:10px}
+form{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;display:grid;gap:16px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:6px}
+label small{font-weight:400;color:var(--mut)}
+.in{width:100%;border:1px solid var(--line);border-radius:8px;padding:11px 13px;font:inherit;font-size:15px;color:var(--txt);background:#fff;outline:none}
+.in:focus{border-color:var(--a);box-shadow:0 0 0 3px var(--tint)}
+textarea.in{min-height:120px;resize:vertical}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.msg{font-size:14px;min-height:20px;color:#9F1D2B}
+.ok{text-align:center;padding:36px 10px}.ok .ic{margin:0 auto 14px;width:52px;height:52px}.ok h3{color:var(--navy);margin:0 0 8px}.ok p{color:var(--mut);margin:0}
+.priv{font-size:12.5px;color:var(--mut);margin:0}
+footer{background:var(--navy);color:var(--sub);padding:44px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--sub);text-decoration:none;margin-left:18px}footer a:hover{color:#fff}
+.fwa{position:fixed;right:22px;bottom:22px;z-index:40;width:58px;height:58px;border-radius:50%;background:var(--a);display:grid;place-items:center;box-shadow:0 10px 26px -8px rgba(15,35,64,.55);transition:background .15s}
+.fwa:hover{background:var(--ah)}.fwa svg{width:28px;height:28px;fill:#fff}
+@media (max-width:980px){.g4{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}.contact,.about{grid-template-columns:1fr}.about img{max-width:280px}.nl a:not(.btn){display:none}}
+@media (max-width:640px){.g2,.g3,.g4,.row{grid-template-columns:1fr}.hero{padding:64px 0 72px}section{padding:72px 0}.nl .btn{display:none}form,.wa,.art{padding:22px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><nav>
+  <a class="logo" href="#">Viral Media</a>
+  <div class="nl">
+    <a href="#ia" data-en="AI for business">IA nos negócios</a>
+    <a href="#servicos" data-en="Services">Serviços</a>
+    <a href="#demos" data-en="Demos">Demonstrações</a>
+    <a href="#sobre" data-en="About">Sobre</a>
+    <button class="lang" id="lang" aria-label="Mudar idioma / Change language">EN</button>
+    <a class="btn p" href="#contato" data-en="Get a quote">Pedir orçamento</a>
+  </div>
+</nav></div></header>
+
+<div class="hero"><div class="wrap">
+  <div class="kick" data-en="AI · Web apps · Automation">IA · Apps web · Automação</div>
+  <h1 data-en="Artificial intelligence <span>applied to your business</span>">Inteligência artificial <span>aplicada ao seu negócio</span></h1>
+  <p class="lead" data-en="We turn AI into practical tools for small businesses: chatbots that answer your customers, apps your clients install on their phone, pages that sell and automations that save hours of manual work.">Transformamos IA em ferramentas práticas para pequenas empresas: chatbots que atendem seus clientes, aplicativos que o cliente instala no celular, páginas que vendem e automações que poupam horas de trabalho manual.</p>
+  <div class="cta">
+    <a class="btn p" href="#contato" data-en="Request a quote">Pedir orçamento</a>
+    <a class="btn o wa-link" href="https://wa.me/5535991187683" target="_blank" rel="noopener" data-en="Talk on WhatsApp">Falar no WhatsApp</a>
+  </div>
+</div></div>
+
+<section id="ia"><div class="wrap">
+  <div class="kick" data-en="AI for small businesses">IA para pequenos negócios</div>
+  <h2 data-en="What AI can actually do for you">O que a IA pode fazer, na prática</h2>
+  <p class="sub" data-en="No hype: what each tool solves, when it is worth it and what it does not do.">Sem exagero: o que cada ferramenta resolve, quando vale a pena e o que ela não faz.</p>
+  <div class="g3">
+    <article class="art">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h3 data-en="AI chatbots">Chatbots com IA</h3>
+      <p data-en="An assistant on your website that answers common questions using your own information: prices, hours, services and policies.">Um assistente no seu site que responde às perguntas mais comuns usando as informações do seu negócio: preços, horários, serviços e regras.</p>
+      <ul><li data-en="Answers at any time, including nights and weekends">Responde a qualquer hora, inclusive à noite e nos fins de semana</li><li data-en="Frees your team from repetitive questions">Libera sua equipe das perguntas repetidas</li><li data-en="Can collect contact details from interested visitors">Pode coletar o contato de quem demonstra interesse</li></ul>
+      <p class="lim" data-en="<b>Limits:</b> it only knows what you teach it. Complex or sensitive cases should still go to a person.">
+        <b>Limites:</b> ele só sabe o que você ensina. Casos complexos ou delicados continuam indo para uma pessoa.</p>
+    </article>
+    <article class="art">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+      <h3 data-en="PWA apps">Aplicativos PWA</h3>
+      <p data-en="A web app that installs on the phone or computer straight from the browser, with its own icon, and can work offline.">Um aplicativo web que instala no celular ou no computador direto pelo navegador, com ícone próprio, e pode funcionar sem internet.</p>
+      <ul><li data-en="No app store approval needed to start">Não precisa de aprovação em loja para começar</li><li data-en="One version for Android, iPhone and desktop">Uma única versão para Android, iPhone e computador</li><li data-en="Can be packaged as an Android APK later">Pode virar APK de Android depois</li></ul>
+      <p class="lim" data-en="<b>Limits:</b> some phone features (like certain notifications on older iPhones) are more limited than in native apps.">
+        <b>Limites:</b> alguns recursos do celular (como certas notificações em iPhones antigos) são mais limitados que em apps nativos.</p>
+    </article>
+    <article class="art">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg></div>
+      <h3 data-en="Automations">Automações</h3>
+      <p data-en="Connecting the tools you already use (forms, spreadsheets, email, CRM) so that data flows by itself, with AI summarizing, classifying or writing drafts.">Conectar as ferramentas que você já usa (formulários, planilhas, e-mail, CRM) para que os dados circulem sozinhos, com a IA resumindo, classificando ou escrevendo rascunhos.</p>
+      <ul><li data-en="Ends copy-and-paste between systems">Acaba com o copia e cola entre sistemas</li><li data-en="Fewer typing errors">Menos erros de digitação</li><li data-en="Reports and spreadsheets ready on time">Relatórios e planilhas prontos na hora</li></ul>
+      <p class="lim" data-en="<b>Limits:</b> it works best on processes that are already clear. A confusing process automated is still confusing.">
+        <b>Limites:</b> funciona melhor em processos que já são claros. Um processo confuso automatizado continua confuso.</p>
+    </article>
+  </div>
+  <div class="art" style="margin-top:24px">
+    <h3 style="margin-top:0" data-en="Where to start">Por onde começar</h3>
+    <p style="margin:0" data-en="Pick one task that takes time every week and has a clear rule, for example answering the same questions, organizing orders or putting together quotes. Starting small makes it easy to measure the result before investing more.">Escolha uma tarefa que toma tempo toda semana e tem regra clara, por exemplo responder as mesmas perguntas, organizar pedidos ou montar orçamentos. Começar pequeno permite medir o resultado antes de investir mais.</p>
+  </div>
+</div></section>
+
+<section id="servicos" class="alt"><div class="wrap">
+  <div class="kick" data-en="Services">Serviços</div>
+  <h2 data-en="What I build for you">O que eu faço para você</h2>
+  <p class="sub" data-en="Everything is delivered online: a working link or files ready to use.">Tudo entregue online: um link funcionando ou arquivos prontos para usar.</p>
+  <div class="g4">
+    <div class="sv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3 data-en="Website AI chatbot">Chatbot com IA para site</h3><p data-en="Answers your visitors 24/7 with your business information. Installs with one line of code.">Atende os visitantes 24 horas com as informações do seu negócio. Instala com uma linha de código.</p></div>
+    <div class="sv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div><h3 data-en="PWA &amp; web apps">Apps PWA e sistemas web</h3><p data-en="Installable apps and systems in Python/FastAPI. Can also be delivered as an Android APK.">Aplicativos instaláveis e sistemas em Python/FastAPI. Também podem ser entregues como APK.</p></div>
+    <div class="sv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div><h3 data-en="Landing pages">Landing pages</h3><p data-en="Fast, responsive pages focused on turning visitors into contacts.">Páginas rápidas e responsivas, focadas em transformar visitas em contatos.</p></div>
+    <div class="sv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg></div><h3 data-en="Logos &amp; visual identity">Logos e identidade visual</h3><p data-en="Logo, colors and basic brand pieces, created with AI support and refined by hand.">Logo, cores e peças básicas da marca, criados com apoio de IA e refinados à mão.</p></div>
+    <div class="sv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div><h3 data-en="Prompt packs">Pacotes de prompts</h3><p data-en="Tested prompts for ChatGPT and Claude, organized for your daily tasks.">Prompts testados para ChatGPT e Claude, organizados para as tarefas do seu dia a dia.</p></div>
+    <div class="sv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></div><h3 data-en="Python scripts">Scripts em Python</h3><p data-en="Spreadsheets, reports, PDF and Excel conversion, data extraction.">Planilhas, relatórios, conversão de PDF e Excel, extração de dados.</p></div>
+    <div class="sv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg></div><h3 data-en="Make.com automations">Automações com Make.com</h3><p data-en="Scenarios connecting your tools, with ChatGPT where it adds value.">Cenários conectando suas ferramentas, com ChatGPT onde ele faz diferença.</p></div>
+    <div class="sv" style="background:var(--tint);border-color:#CFE3E1"><div class="ic" style="background:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div><h3 data-en="Something else?">Outra ideia?</h3><p data-en="Tell me what you need and I will say honestly whether I can help.">Conte o que você precisa e eu digo com sinceridade se consigo ajudar.</p></div>
+  </div>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <div class="kick" data-en="How it works">Como funciona</div>
+  <h2 data-en="Simple from start to finish">Simples do começo ao fim</h2>
+  <p class="sub" data-en="Clear scope, price and deadline before any work begins.">Escopo, preço e prazo claros antes de começar qualquer trabalho.</p>
+  <div class="g4 steps">
+    <div class="st"><span class="n">01</span><b data-en="Briefing">Conversa</b><span data-en="You describe what you need, by the form or WhatsApp.">Você conta o que precisa, pelo formulário ou WhatsApp.</span></div>
+    <div class="st"><span class="n">02</span><b data-en="Proposal">Proposta</b><span data-en="I reply with scope, price and deadline in writing.">Eu respondo com escopo, preço e prazo por escrito.</span></div>
+    <div class="st"><span class="n">03</span><b data-en="Build &amp; review">Desenvolvimento e revisão</b><span data-en="You follow progress through a live link and request adjustments.">Você acompanha por um link ao vivo e pede ajustes.</span></div>
+    <div class="st"><span class="n">04</span><b data-en="Delivery">Entrega</b><span data-en="Published online or delivered as files, with instructions.">Publicado online ou entregue em arquivos, com instruções.</span></div>
+  </div>
+</div></section>
+
+<section id="demos" class="alt"><div class="wrap">
+  <div class="kick" data-en="Live demos">Demonstrações ao vivo</div>
+  <h2 data-en="See it working before you hire">Veja funcionando antes de contratar</h2>
+  <p class="sub" data-en="Working examples built for fictional businesses. Open them and try.">Exemplos funcionando, feitos para empresas fictícias. Abra e teste.</p>
+  <div class="g3">
+    <a class="demo" href="https://demo.viralmedia.vip/chatbot/" target="_blank" rel="noopener"><img src="/static/demo-chatbot.jpg?v={{VERSAO}}" alt="Demonstração do chatbot com IA" loading="lazy" width="800" height="500"><div><h3 data-en="Website AI chatbot">Chatbot com IA para site</h3><p data-en="A dental clinic site with a chat that answers prices, hours and services.">Site de uma clínica odontológica com chat que responde preços, horários e serviços.</p><span class="go" data-en="Try the chatbot →">Testar o chatbot →</span></div></a>
+    <a class="demo" href="https://demo.viralmedia.vip/app/" target="_blank" rel="noopener"><img src="/static/demo-app.jpg?v={{VERSAO}}" alt="Demonstração do aplicativo PWA" loading="lazy" width="800" height="500"><div><h3 data-en="Installable app (PWA)">Aplicativo instalável (PWA)</h3><p data-en="Quotes and schedule app that installs on the phone and works offline.">App de orçamentos e agenda que instala no celular e funciona sem internet.</p><span class="go" data-en="Open the app →">Abrir o app →</span></div></a>
+    <a class="demo" href="https://demo.viralmedia.vip/landing/" target="_blank" rel="noopener"><img src="/static/demo-landing.jpg?v={{VERSAO}}" alt="Demonstração de landing page" loading="lazy" width="800" height="500"><div><h3 data-en="Sales landing page">Landing page de vendas</h3><p data-en="A solar energy page with a savings simulator, plans and contact form.">Página de energia solar com simulador de economia, planos e formulário.</p><span class="go" data-en="View the page →">Ver a página →</span></div></a>
+  </div>
+</div></section>
+
+<section id="sobre"><div class="wrap about">
+  <img src="/static/antonio.jpg?v={{VERSAO}}" alt="Antonio Rocha" width="300" height="300" loading="lazy">
+  <div>
+    <div class="kick" data-en="About">Sobre</div>
+    <h2>Antonio Rocha</h2>
+    <p data-en="I am the developer behind Viral Media. I work with Python, FastAPI and AI tools to build chatbots, web apps and automations for small businesses, always delivered online and ready to use.">Sou o desenvolvedor por trás da Viral Media. Trabalho com Python, FastAPI e ferramentas de IA para criar chatbots, aplicativos web e automações para pequenas empresas, sempre entregues online e prontos para usar.</p>
+    <p data-en="My focus is on practical solutions: clear scope, honest deadlines and something you can open and test from the first days of the project.">Meu foco são soluções práticas: escopo claro, prazos honestos e algo que você já pode abrir e testar desde os primeiros dias do projeto.</p>
+    <div class="links">
+      <a href="https://www.fiverr.com/antoniorochanet" target="_blank" rel="noopener">Fiverr</a>
+      <a href="https://www.upwork.com/freelancers/~011dc6dece52f38d35" target="_blank" rel="noopener">Upwork</a>
+      <a href="https://www.freelancer.com/u/antoniorochaneto" target="_blank" rel="noopener">Freelancer.com</a>
+      <a href="https://www.99freelas.com.br/user/antonio-elizeu-da-rocha" target="_blank" rel="noopener">99Freelas</a>
+      <a href="https://demo.viralmedia.vip/" target="_blank" rel="noopener" data-en="Portfolio">Portfólio</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="contato" class="alt"><div class="wrap">
+  <div class="kick" data-en="Contact">Contato</div>
+  <h2 data-en="Tell me about your project">Conte sobre o seu projeto</h2>
+  <p class="sub" data-en="Use the form or call me on WhatsApp. I usually reply within one business day.">Use o formulário ou me chame no WhatsApp. Costumo responder em até um dia útil.</p>
+  <div class="contact">
+    <div class="wa">
+      <h3 data-en="Prefer WhatsApp?">Prefere WhatsApp?</h3>
+      <p data-en="Send a message and tell me what you need.">Mande uma mensagem e conte o que você precisa.</p>
+      <a class="btn p wa-link" href="https://wa.me/5535991187683" target="_blank" rel="noopener" data-en="Talk on WhatsApp">Falar no WhatsApp</a>
+      <ul><li data-en="Free first conversation">Primeira conversa sem custo</li><li data-en="Written proposal with price and deadline">Proposta por escrito com preço e prazo</li><li data-en="Service in Portuguese and English">Atendimento em português e inglês</li></ul>
+    </div>
+    <form id="form" novalidate>
+      <div class="row">
+        <div><label for="nome" data-en="Name">Nome</label><input class="in" id="nome" name="nome" autocomplete="name" maxlength="100" required></div>
+        <div><label for="email">E-mail</label><input class="in" id="email" name="email" type="email" autocomplete="email" maxlength="150" required></div>
+      </div>
+      <div class="row">
+        <div><label for="telefone" data-en="WhatsApp / phone">WhatsApp / telefone</label><input class="in" id="telefone" name="telefone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <div><label for="tipo" data-en="Type of service">Tipo de serviço</label>
+          <select class="in" id="tipo" name="tipo" required>
+            <option value="" data-en="Choose…">Escolha…</option>
+            <option value="chatbot" data-en="Website AI chatbot">Chatbot com IA para site</option>
+            <option value="app" data-en="PWA / web app">App PWA / sistema web</option>
+            <option value="landing" data-en="Landing page">Landing page</option>
+            <option value="logo" data-en="Logo / visual identity">Logo / identidade visual</option>
+            <option value="prompts" data-en="Prompt pack">Pacote de prompts</option>
+            <option value="python" data-en="Python script">Script em Python</option>
+            <option value="make" data-en="Make.com automation">Automação com Make.com</option>
+            <option value="outro" data-en="Other">Outro</option>
+          </select></div>
+      </div>
+      <div><label for="descricao" data-en="Describe your project">Descreva o seu projeto</label><textarea class="in" id="descricao" name="descricao" maxlength="4000" required></textarea></div>
+      <div><label for="prazo"><span data-en="Deadline / budget">Prazo / orçamento</span> <small data-en="(optional)">(opcional)</small></label><input class="in" id="prazo" name="prazo" maxlength="200"></div>
+      <div class="hp" aria-hidden="true"><label for="site">Site</label><input id="site" name="site" tabindex="-1" autocomplete="off"></div>
+      <div class="msg" id="msg" role="alert"></div>
+      <button class="btn p" type="submit" id="enviar" data-en="Send request">Enviar pedido</button>
+      <p class="priv" data-en="Your data is used only to reply to this request.">Seus dados são usados apenas para responder a este pedido.</p>
+    </form>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 Viral Media · Antonio Rocha</span>
+  <span><a href="#servicos" data-en="Services">Serviços</a><a href="#demos" data-en="Demos">Demonstrações</a><a href="#contato" data-en="Contact">Contato</a></span>
+</div></footer>
+
+<a class="fwa wa-link" href="https://wa.me/5535991187683" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8C29 8.7 23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.6l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9 0-5.9 4.9-10.7 11-10.7S27 9.9 27 15.8s-4.9 10.6-11 10.6zm6-8c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2.1-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 2-.8 2.2-1.6.3-.8.3-1.4.2-1.6-.1-.1-.3-.2-.6-.4z"/></svg></a>
+
+<script>
+(function(){
+  var KEY='viralmedia-lang', lang='pt';
+  var WA='https://wa.me/5535991187683?text=';
+  var WAMSG={pt:'Olá Antonio, vim pelo site Viral Media e quero um orçamento.',en:'Hi Antonio, I found you through the Viral Media website and would like a quote.'};
+  var T={pt:{nome:'Informe seu nome.',email:'Informe um e-mail válido.',tipo:'Escolha o tipo de serviço.',desc:'Descreva o projeto em pelo menos algumas palavras.',env:'Enviando…',erro:'Não foi possível enviar agora. Tente de novo ou fale pelo WhatsApp.',limite:'Muitos envios seguidos. Aguarde alguns minutos ou fale pelo WhatsApp.',okT:'Pedido enviado!',okP:'Obrigado, {n}. Vou ler com atenção e responder em breve pelo e-mail ou WhatsApp informado.'},
+         en:{nome:'Please enter your name.',email:'Please enter a valid email.',tipo:'Please choose a type of service.',desc:'Please describe the project in a few words.',env:'Sending…',erro:'Could not send right now. Please try again or use WhatsApp.',limite:'Too many requests. Please wait a few minutes or use WhatsApp.',okT:'Request sent!',okP:'Thank you, {n}. I will read it carefully and reply soon by email or WhatsApp.'}};
+  function $(q){return document.querySelector(q)}
+  function apply(l){
+    lang=l==='en'?'en':'pt';document.documentElement.lang=lang==='en'?'en':'pt-BR';
+    document.querySelectorAll('[data-en]').forEach(function(e){if(e.dataset.pt===undefined)e.dataset.pt=e.innerHTML;e.innerHTML=lang==='en'?e.dataset.en:e.dataset.pt});
+    document.querySelectorAll('.wa-link').forEach(function(a){a.href=WA+encodeURIComponent(WAMSG[lang])});
+    $('#lang').textContent=lang==='en'?'PT':'EN';
+    document.title=lang==='en'?'Viral Media · Artificial intelligence applied to your business':'Viral Media · Inteligência artificial aplicada ao seu negócio';
+    try{localStorage.setItem(KEY,lang)}catch(e){}
+  }
+  var q=new URLSearchParams(location.search).get('lang');
+  apply(q||(function(){try{return localStorage.getItem(KEY)}catch(e){return null}})()||'pt');
+  $('#lang').onclick=function(){apply(lang==='en'?'pt':'en')};
+  $('#form').addEventListener('submit',function(e){
+    e.preventDefault();var f=e.target,t=T[lang],m=$('#msg');m.textContent='';
+    var d={nome:f.nome.value.trim(),email:f.email.value.trim(),telefone:f.telefone.value.trim(),tipo:f.tipo.value,descricao:f.descricao.value.trim(),prazo:f.prazo.value.trim(),site:f.site.value,idioma:lang};
+    if(d.nome.length<2){m.textContent=t.nome;f.nome.focus();return}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){m.textContent=t.email;f.email.focus();return}
+    if(!d.tipo){m.textContent=t.tipo;f.tipo.focus();return}
+    if(d.descricao.length<10){m.textContent=t.desc;f.descricao.focus();return}
+    var b=$('#enviar');b.disabled=true;var bt=b.textContent;b.textContent=t.env;
+    fetch('/api/pedido',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){return r.json().then(function(j){return{s:r.status,j:j}})})
+      .then(function(r){
+        if(r.s===200&&r.j.ok){var n=d.nome.split(' ')[0].replace(/[<>&"']/g,'');f.innerHTML='<div class="ok"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h3>'+t.okT+'</h3><p>'+t.okP.replace('{n}',n)+'</p></div>';}
+        else{m.textContent=r.s===429?t.limite:(r.j&&r.j.erro==='email'?t.email:t.erro);b.disabled=false;b.textContent=bt}
+      }).catch(function(){m.textContent=t.erro;b.disabled=false;b.textContent=bt});
+  });
+})();
+</script>
+</body>
+</html>
