@@ -127,6 +127,11 @@ def _base(req: Request) -> str:
     return f"https://{req.headers.get('host', 'viralmedia.vip')}"
 
 
+def _staging(req: Request) -> bool:
+    # enquanto estiver so no subdominio de teste, nao deixa o Google indexar
+    return req.headers.get("host", "").startswith("novo.")
+
+
 @app.get("/saude")
 def saude():
     return {"ok": True, "versao": VERSAO}
@@ -136,11 +141,17 @@ def saude():
 def inicio(req: Request):
     html = (AQUI / "index.html").read_text(encoding="utf-8")
     html = html.replace("{{VERSAO}}", VERSAO).replace("{{URL}}", _base(req))
-    return HTMLResponse(html, headers={"Cache-Control": "no-cache"})
+    cab = {"Cache-Control": "no-cache"}
+    if _staging(req):
+        html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1)
+        cab["X-Robots-Tag"] = "noindex"
+    return HTMLResponse(html, headers=cab)
 
 
 @app.get("/robots.txt", response_class=PlainTextResponse)
 def robots(req: Request):
+    if _staging(req):
+        return "User-agent: *\nDisallow: /\n"
     return f"User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: {_base(req)}/sitemap.xml\n"
 
 
