@@ -36,7 +36,7 @@
     'input{flex:1;border:1px solid #e2e8f0;border-radius:12px;padding:11px 14px;font-size:14px;outline:none;color:#0f172a}input:focus{border-color:' + COR + '}' +
     '.sd{width:44px;border:0;border-radius:12px;background:' + COR + ';color:#fff;cursor:pointer;display:grid;place-items:center}.sd svg{width:18px;height:18px}' +
     '.ft{font-size:11px;text-align:center;color:#94a3b8;padding:0 0 8px;background:#fff}' +
-    '@media (max-width:480px){.box{right:0;bottom:0;width:100vw;max-width:100vw;height:100%;max-height:100%;border-radius:0}.tip{display:none}}' +
+    '@media (max-width:480px){.box{right:0;bottom:0;width:100vw;max-width:100vw;height:100%;max-height:100%;border-radius:0}.tip{display:none}.box:not([hidden])~.bub{display:none}}' +
     '</style>' +
     '<div class="tip" hidden></div>' +
     '<div class="box" hidden><div class="hd"><div class="av">🦷</div><div><b></b><small class="on"></small></div><button class="x" type="button">×</button></div>' +
