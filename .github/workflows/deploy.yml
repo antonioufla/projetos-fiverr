@@ -2,12 +2,12 @@ name: Deploy clientes
 on:
   push:
     branches: [main]
-    paths: ['clientes/**', 'infra/deploy/**']
+    paths: ['clientes/**', 'infra/**', '.github/workflows/deploy.yml']
   workflow_dispatch:
     inputs:
-      cliente:
-        description: 'ID do cliente (pasta em clientes/)'
-        required: true
+      alvo:
+        description: 'cliente ou cliente/projeto (vazio = todos)'
+        required: false
 concurrency: deploy-servidor-133
 jobs:
   deploy:
@@ -16,22 +16,27 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Descobrir clientes alterados
-        id: alterados
+      - name: Infra (Traefik + Nginx curinga)
+        run: bash infra/deploy/setup-infra.sh
+      - name: Descobrir projetos alterados
+        id: alvos
         run: |
-          if [ -n "${{ github.event.inputs.cliente }}" ]; then
-            LISTA="${{ github.event.inputs.cliente }}"
-          elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
-            LISTA=$(ls clientes | grep -v '^_')
+          todos() { find clientes -mindepth 2 -maxdepth 2 -type d ! -path 'clientes/_*' | cut -d/ -f2-3; }
+          ALVO="${{ github.event.inputs.alvo }}"
+          BEFORE="${{ github.event.before }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ -z "$ALVO" ]; then LISTA=$(todos)
+            elif [[ "$ALVO" == */* ]]; then LISTA="$ALVO"
+            else LISTA=$(todos | grep "^$ALVO/" || true); fi
+          elif [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            LISTA=$(todos)
           else
-            LISTA=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- clientes | cut -d/ -f2 | sort -u | grep -v '^_' || true)
+            LISTA=$(git diff --name-only "$BEFORE" "${{ github.sha }}" -- clientes | awk -F/ 'NF>=4 && $2 !~ /^_/ {print $2"/"$3}' | sort -u)
           fi
-          echo "Clientes: $LISTA"
+          echo "Projetos: $LISTA"
           echo "lista=$(echo $LISTA)" >> "$GITHUB_OUTPUT"
       - name: Publicar
         run: |
-          for ID in ${{ steps.alterados.outputs.lista }}; do
-            if [ -d "clientes/$ID" ]; then
-              echo "::group::$ID"; bash infra/deploy/deploy-cliente.sh "$ID"; echo "::endgroup::"
-            fi
+          for P in ${{ steps.alvos.outputs.lista }}; do
+            echo "::group::$P"; bash infra/deploy/deploy-projeto.sh "${P%%/*}" "${P##*/}"; echo "::endgroup::"
           done

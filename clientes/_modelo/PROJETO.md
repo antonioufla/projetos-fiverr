@@ -1,13 +1,11 @@
-# Cliente @<id-cliente>
+# @<id-cliente> / <projeto>
 
 - **Fiverr:** @<id-cliente>
-- **URL:** https://<id-cliente>.viralmedia.vip
-
-## Projetos
-
-| Projeto | Caminho | Pedido (order ID) | Valor | Prazo | Status |
-|---|---|---|---|---|---|
-| projeto-exemplo | / | | US$ | | conversando |
+- **URL:** https://<id-cliente>.viralmedia.vip<CAMINHO>
+- **Pedido (order ID):**
+- **Valor:** US$
+- **Prazo:**
+- **Status:** conversando | em desenvolvimento | em revisao | entregue
 
 ## Escopo combinado
 

@@ -1,0 +1,23 @@
+# Roteador interno: recebe tudo do Nginx na porta 8100 e entrega para o container
+# certo pelo Host/caminho, lendo as etiquetas (labels) dos containers.
+services:
+  traefik:
+    image: traefik:v3.1
+    container_name: fiverr-traefik
+    restart: unless-stopped
+    command:
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --providers.docker.network=fiverr
+      - --entrypoints.web.address=:80
+      - --entrypoints.web.forwardedHeaders.insecure=true
+      - --accesslog=true
+      - --ping=true
+    ports:
+      - "127.0.0.1:8100:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks: [fiverr]
+networks:
+  fiverr:
+    external: true
