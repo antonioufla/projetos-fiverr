@@ -93,10 +93,10 @@
   }
   function itemOrc(o) {
     var tt = totais(o), n = (o.itens || []).length;
-    return '<div class="item" data-ver="' + o.id + '"><div class="ic">🧾</div><div class="mid"><b>' + esc(o.cliente) + (o.ex ? '<span class="ex">' + t('exemplo') + '</span>' : '') + '</b><span>' + n + ' ' + (n === 1 ? t('item1') : t('itensN')) + ' · ' + fmtData(o.criado) + '</span></div><div class="rt">' + brl(tt.total) + '<br><span class="badge b-' + o.status + '">' + t(o.status) + '</span></div></div>';
+    return '<div class="item" data-ver="' + o.id + '"><div class="ic">🧾</div><div class="mid"><b>' + esc(o.cliente) + '</b><span>' + (o.ex ? '<span class="ex">' + t('exemplo') + '</span> ' : '') + n + ' ' + (n === 1 ? t('item1') : t('itensN')) + ' · ' + fmtData(o.criado) + '</span></div><div class="rt">' + brl(tt.total) + '<br><span class="badge b-' + o.status + '">' + t(o.status) + '</span></div></div>';
   }
   function itemAg(a) {
-    return '<div class="item ' + (a.feito ? 'done' : '') + '" data-ag="' + a.id + '"><button class="chk" data-feito="' + a.id + '" aria-label="ok">' + (a.feito ? '✓' : '') + '</button><div class="mid"><b>' + esc(a.titulo) + (a.ex ? '<span class="ex">' + t('exemplo') + '</span>' : '') + '</b><span>' + esc(a.cliente || '') + (a.nota ? ' · ' + esc(a.nota) : '') + '</span></div><div class="rt">' + esc(a.hora || '') + '</div></div>';
+    return '<div class="item ' + (a.feito ? 'done' : '') + '" data-ag="' + a.id + '"><button class="chk" data-feito="' + a.id + '" aria-label="ok">' + (a.feito ? '✓' : '') + '</button><div class="mid"><b>' + esc(a.titulo) + '</b><span>' + (a.ex ? '<span class="ex">' + t('exemplo') + '</span> ' : '') + esc(a.cliente || '') + (a.nota ? ' · ' + esc(a.nota) : '') + '</span></div><div class="rt">' + esc(a.hora || '') + '</div></div>';
   }
   function vInicio() {
     var mes = iso(new Date()).slice(0, 7);

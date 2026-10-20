@@ -1,3 +1,4 @@
+[hidden]{display:none!important}
 :root{--p:#7c3aed;--p2:#db2777;--pl:#ede9fe;--ink:#1e1b4b;--mut:#6b7280;--bg:#f5f3ff;--card:#fff;--line:#e5e7eb;--ok:#16a34a;--warn:#d97706;--bad:#dc2626;--safe:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0}

@@ -14,7 +14,7 @@
   var host = document.createElement('div'); host.id = 'chat-widget-ar';
   var root = host.attachShadow({ mode: 'open' });
   root.innerHTML = '<style>' +
-    ':host{all:initial}*{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}' +
+    ':host{all:initial}[hidden]{display:none!important}*{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}' +
     '.bub{position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;border:0;background:' + COR + ';color:#fff;cursor:pointer;box-shadow:0 12px 30px -6px rgba(0,0,0,.35);display:grid;place-items:center;z-index:2147483000;transition:transform .2s}' +
     '.bub:hover{transform:scale(1.07)}.bub svg{width:28px;height:28px}' +
     '.ping{position:absolute;top:2px;right:2px;width:16px;height:16px;border-radius:50%;background:#ef4444;border:2px solid #fff;font-size:10px;color:#fff;display:grid;place-items:center;font-weight:700}' +
