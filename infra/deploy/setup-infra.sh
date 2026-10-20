@@ -22,7 +22,19 @@ docker compose -p fiverr-traefik -f "$REPO/infra/traefik/docker-compose.yml" up 
 BACKUP=$(mktemp -d)
 cp -a "$NGINX_DIR"/*.conf "$BACKUP"/ 2>/dev/null || true
 rm -f "$NGINX_DIR"/*.viralmedia.vip.conf
-cp "$REPO/infra/nginx/00-fiverr-curinga.conf" "$NGINX_DIR/00-fiverr-curinga.conf"
+# Exclui da regex todo subdominio que ja tem site proprio no Nginx (sites antigos)
+EXISTENTES=$(grep -hoE 'server_name[^;]*' /etc/nginx/sites-enabled/* /etc/nginx/conf.d/* 2>/dev/null \
+  | sed 's/server_name//' | tr ' ' '\n' | grep -E '^[a-z0-9-]+\.viralmedia\.vip$' \
+  | sed 's/\.viralmedia\.vip$//' | sort -u | paste -sd'|')
+echo "Subdominios existentes preservados: $EXISTENTES"
+if [ -n "$EXISTENTES" ]; then
+  REGEX="~^(?!(?:$EXISTENTES)\\.)(?<cliente>[a-z0-9-]+)\\.viralmedia\\.vip\$"
+else
+  REGEX="~^(?<cliente>[a-z0-9-]+)\\.viralmedia\\.vip\$"
+fi
+MODELO=$(cat "$REPO/infra/nginx/00-fiverr-curinga.conf")
+printf '%s\n' "${MODELO//__REGEX__/$REGEX}" > "$NGINX_DIR/00-fiverr-curinga.conf"
+grep server_name "$NGINX_DIR/00-fiverr-curinga.conf"
 if sudo /usr/sbin/nginx -t; then
   sudo /usr/bin/systemctl reload nginx
 else
