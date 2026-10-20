@@ -1,0 +1,8 @@
+# Ponto de entrada do cliente. Publique UMA porta em 127.0.0.1:${PORTA}.
+# Varios projetos do mesmo cliente: use um proxy interno que roteia por caminho (/projeto).
+services:
+  web:
+    build: ./projeto-exemplo
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${PORTA}:80"

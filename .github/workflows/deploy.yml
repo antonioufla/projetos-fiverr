@@ -1,0 +1,37 @@
+name: Deploy clientes
+on:
+  push:
+    branches: [main]
+    paths: ['clientes/**', 'infra/deploy/**']
+  workflow_dispatch:
+    inputs:
+      cliente:
+        description: 'ID do cliente (pasta em clientes/)'
+        required: true
+concurrency: deploy-servidor-133
+jobs:
+  deploy:
+    runs-on: [self-hosted, projetos-fiverr]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Descobrir clientes alterados
+        id: alterados
+        run: |
+          if [ -n "${{ github.event.inputs.cliente }}" ]; then
+            LISTA="${{ github.event.inputs.cliente }}"
+          elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            LISTA=$(ls clientes | grep -v '^_')
+          else
+            LISTA=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- clientes | cut -d/ -f2 | sort -u | grep -v '^_' || true)
+          fi
+          echo "Clientes: $LISTA"
+          echo "lista=$(echo $LISTA)" >> "$GITHUB_OUTPUT"
+      - name: Publicar
+        run: |
+          for ID in ${{ steps.alterados.outputs.lista }}; do
+            if [ -d "clientes/$ID" ]; then
+              echo "::group::$ID"; bash infra/deploy/deploy-cliente.sh "$ID"; echo "::endgroup::"
+            fi
+          done
