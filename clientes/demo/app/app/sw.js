@@ -2,7 +2,7 @@
 const CACHE = 'orcafacil-{{VERSAO}}';
 const BASE = '{{BASE}}';
 const ARQUIVOS = [
-  BASE + '/', BASE + '/manifest.webmanifest', BASE + '/static/app.css', BASE + '/static/app.js',
+  BASE + '/', BASE + '/manifest.webmanifest', BASE + '/static/app.css?v={{VERSAO}}', BASE + '/static/app.js?v={{VERSAO}}',
   BASE + '/static/icons/icon-192.png', BASE + '/static/icons/icon-512.png', BASE + '/static/icons/favicon.png',
 ];
 self.addEventListener('install', (e) => {
