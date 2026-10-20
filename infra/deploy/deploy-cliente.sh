@@ -21,9 +21,22 @@ sed -i "s/__VERSAO__/${GITHUB_SHA:0:7} ($(date -u +%Y-%m-%dT%H:%MZ))/g" $(grep -
 cd "$DEST"
 docker compose -p "fiverr-$ID" up -d --build --remove-orphans
 
+# Certificado de origem (a Cloudflare conecta via HTTPS na origem)
+SSL_DIR="$NGINX_DIR/ssl"
+mkdir -p "$SSL_DIR"
+if [ ! -f "$SSL_DIR/origem.crt" ]; then
+  openssl req -x509 -nodes -newkey rsa:2048 -days 3650 \
+    -keyout "$SSL_DIR/origem.key" -out "$SSL_DIR/origem.crt" \
+    -subj "/CN=*.viralmedia.vip" -addext "subjectAltName=DNS:*.viralmedia.vip,DNS:viralmedia.vip"
+  chmod 600 "$SSL_DIR/origem.key"
+fi
+
 cat > "$NGINX_DIR/$SUBDOMINIO.viralmedia.vip.conf" <<NGX
 server {
     listen 80;
+    listen 443 ssl;
+    ssl_certificate $SSL_DIR/origem.crt;
+    ssl_certificate_key $SSL_DIR/origem.key;
     server_name $SUBDOMINIO.viralmedia.vip;
     client_max_body_size 50m;
     location / {
@@ -41,5 +54,6 @@ NGX
 sudo /usr/sbin/nginx -t
 sudo /usr/bin/systemctl reload nginx
 sleep 3
-curl -fsS -o /dev/null -w "Local: HTTP %{http_code}\n" -H "Host: $SUBDOMINIO.viralmedia.vip" http://127.0.0.1/
+curl -fsS -o /dev/null -w "Local 80: HTTP %{http_code}\n" -H "Host: $SUBDOMINIO.viralmedia.vip" http://127.0.0.1/
+curl -fsSk -o /dev/null -w "Local 443: HTTP %{http_code}\n" --resolve "$SUBDOMINIO.viralmedia.vip:443:127.0.0.1" "https://$SUBDOMINIO.viralmedia.vip/"
 echo "Publicado: https://$SUBDOMINIO.viralmedia.vip"
