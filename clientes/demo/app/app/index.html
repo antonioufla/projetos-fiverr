@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OrçaFácil · Orçamentos e Agenda (demo PWA)</title>
+<meta name="description" content="Demonstração de aplicativo PWA: orçamentos e agenda que instalam no celular e funcionam sem internet.">
+<meta name="theme-color" content="#7c3aed">
+<link rel="manifest" href="{{BASE}}/manifest.webmanifest">
+<link rel="icon" type="image/png" href="{{BASE}}/static/icons/favicon.png">
+<link rel="apple-touch-icon" href="{{BASE}}/static/icons/apple-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="OrçaFácil">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="{{BASE}}/static/app.css?v={{VERSAO}}">
+<script>if(location.pathname.slice(-1)!=='/')location.replace(location.pathname+'/'+location.search+location.hash)</script>
+</head>
+<body>
+<div class="demo" id="demoBar"></div>
+<header class="top">
+  <div class="brand"><img src="{{BASE}}/static/icons/icon-192.png" alt="" width="36" height="36"><div><b>OrçaFácil</b><small id="net"></small></div></div>
+  <div class="topr">
+    <button class="chip" id="install" hidden></button>
+    <button class="chip" id="lang">EN</button>
+  </div>
+</header>
+<main id="view" class="view"></main>
+<nav class="tabs" id="tabs"></nav>
+<button class="fab" id="fab" aria-label="+">+</button>
+<div class="sheet-bg" id="sheetBg" hidden></div>
+<section class="sheet" id="sheet" hidden></section>
+<div class="toast" id="toast" hidden></div>
+<div id="print" class="print-only"></div>
+<script>window.BASE='{{BASE}}';window.VERSAO='{{VERSAO}}';</script>
+<script src="{{BASE}}/static/app.js?v={{VERSAO}}" defer></script>
+</body>
+</html>

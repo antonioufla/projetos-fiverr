@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumina Solar · Reduza até 95% da conta de luz (demo)</title>
+<meta name="description" content="Demonstração de landing page: energia solar com simulador de economia, planos e formulário de contato.">
+<meta name="theme-color" content="#f59e0b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
+<script>if(location.pathname.slice(-1)!=='/')history.replaceState(null,'',location.pathname+'/'+location.search+location.hash)</script>
+<style>
+:root{--y:#f59e0b;--o:#f97316;--g:#16a34a;--ink:#0c1a12;--mut:#5b6b62;--bg:#fffbeb;--line:#ece6d3;--dk:#0b1f17}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+a{color:inherit}
+.demo{background:var(--dk);color:#d1fae5;font-size:13px;text-align:center;padding:8px 14px}.demo a{color:#fde68a;font-weight:700}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px}
+.logo{display:flex;gap:8px;align-items:center;font-weight:900;font-size:20px;text-decoration:none;letter-spacing:-.02em}
+.logo i{font-style:normal;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fde68a,var(--y) 60%,var(--o));display:grid;place-items:center;box-shadow:0 0 0 5px #fef3c7}
+.nl{display:flex;gap:22px;align-items:center}.nl a{text-decoration:none;color:var(--mut);font-size:15px;font-weight:500}.nl a:hover{color:var(--ink)}
+.lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;font-weight:800;font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:14px;font-weight:800;text-decoration:none;border:0;cursor:pointer;font-size:16px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.bp{background:linear-gradient(135deg,var(--y),var(--o));color:#fff;box-shadow:0 12px 28px -10px rgba(249,115,22,.7)}
+.bg{background:var(--g);color:#fff}.bo{background:#fff;border:1.5px solid var(--line)}
+.hero{background:radial-gradient(1200px 500px at 85% -10%,#fde68a 0,transparent 60%),linear-gradient(180deg,var(--bg),#fff);padding:56px 0 80px}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center}
+.pill{display:inline-flex;gap:8px;align-items:center;background:#dcfce7;color:#166534;font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px}
+h1{font-size:clamp(36px,5.2vw,60px);line-height:1.04;letter-spacing:-.035em;margin:16px 0}
+h1 span{background:linear-gradient(90deg,var(--o),var(--y));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:19px;color:var(--mut);max-width:560px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.trust{display:flex;gap:22px;margin-top:28px;flex-wrap:wrap;color:var(--mut);font-size:14px}.trust b{color:var(--ink)}
+.sim{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 30px 70px -30px rgba(120,80,0,.35)}
+.sim h3{margin:0 0 4px;font-size:20px}.sim p{margin:0 0 18px;color:var(--mut);font-size:14px}
+.sim label{display:flex;justify-content:space-between;font-weight:700;font-size:14px}
+.sim output{font-weight:900;color:var(--o)}
+input[type=range]{width:100%;accent-color:var(--o);margin:10px 0 18px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.res div{background:var(--bg);border-radius:16px;padding:14px}.res b{display:block;font-size:22px;letter-spacing:-.02em}.res span{font-size:12px;color:var(--mut)}
+.res .hl{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}.res .hl b{color:#166534}
+.sim small{display:block;margin-top:12px;color:var(--mut);font-size:11.5px}
+.logos{border-block:1px solid var(--line);padding:20px 0;color:var(--mut);font-size:14px;text-align:center}
+.logos b{color:var(--ink)}
+section{padding:80px 0}
+.kick{color:var(--o);font-weight:900;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-.03em;margin:6px 0 12px;line-height:1.12}
+.sub{color:var(--mut);max-width:640px;margin:0 0 36px;font-size:17px}
+.center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
+.ben{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.b{border:1px solid var(--line);border-radius:20px;padding:24px;background:#fff}
+.b .ic{width:48px;height:48px;border-radius:14px;background:#fef3c7;display:grid;place-items:center;font-size:24px}
+.b h3{margin:14px 0 6px;font-size:18px}.b p{margin:0;color:var(--mut);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:n}
+.step{position:relative;padding:22px;border-radius:20px;background:var(--dk);color:#d1fae5}
+.step:before{counter-increment:n;content:counter(n);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--y);color:var(--dk);font-weight:900;margin-bottom:12px}
+.step b{display:block;color:#fff;font-size:17px}.step span{font-size:14px;opacity:.85}
+.dep{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.d{border:1px solid var(--line);border-radius:20px;padding:24px;background:#fff;display:flex;flex-direction:column;gap:12px}
+.d .st{color:var(--y);letter-spacing:2px}.d p{margin:0;font-size:15.5px;flex:1}
+.d .who{display:flex;gap:10px;align-items:center}.d .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#fff}
+.d .who b{display:block;font-size:14.5px}.d .who span{font-size:13px;color:var(--mut)}
+.note{display:inline-block;margin-top:18px;font-size:13px;color:var(--mut);background:#f5f5f4;border-radius:999px;padding:6px 14px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.pl{border:1.5px solid var(--line);border-radius:24px;padding:28px;background:#fff;display:flex;flex-direction:column}
+.pl.pop{border-color:var(--o);box-shadow:0 30px 60px -30px rgba(249,115,22,.55);position:relative}
+.pl.pop:before{content:attr(data-tag);position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--y),var(--o));color:#fff;font-size:12px;font-weight:900;padding:4px 14px;border-radius:999px;white-space:nowrap}
+.pl h3{margin:0;font-size:20px}.pl .for{color:var(--mut);font-size:14px;margin:4px 0 16px}
+.pl .price{font-size:36px;font-weight:900;letter-spacing:-.03em}.pl .price small{font-size:15px;color:var(--mut);font-weight:600}
+.pl .alt{font-size:13px;color:var(--g);font-weight:700;margin-bottom:16px}
+.pl ul{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:9px;flex:1}.pl li{font-size:15px;padding-left:26px;position:relative}.pl li:before{content:"✓";position:absolute;left:0;color:var(--g);font-weight:900}
+.faq{max-width:780px;margin:0 auto}
+details{border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin-bottom:10px;background:#fff}
+summary{font-weight:800;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:22px;line-height:1;color:var(--o)}details[open] summary:after{content:"−"}
+details p{margin:10px 0 0;color:var(--mut)}
+.contact{background:linear-gradient(135deg,var(--dk),#14532d);color:#ecfdf5;border-radius:30px;padding:46px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact h2{color:#fff}.contact .sub{color:#a7f3d0}
+.contact ul{padding:0;list-style:none;display:grid;gap:10px;margin:0}.contact li:before{content:"☀️ "}
+form{background:#fff;color:var(--ink);border-radius:22px;padding:24px;display:grid;gap:12px}
+form label{font-size:13px;font-weight:800;color:var(--mut)}
+.in{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;outline:none;margin-top:4px;background:#fff}.in:focus{border-color:var(--o)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ok{text-align:center;padding:30px 10px}.ok div{font-size:54px}.ok h3{margin:8px 0}
+.err{color:#b91c1c;font-size:13px;min-height:18px}
+footer{padding:36px 0 46px;color:var(--mut);font-size:13px;text-align:center}footer a{color:var(--o);font-weight:700}
+.sticky{display:none}
+@media (max-width:960px){.hg,.contact{grid-template-columns:1fr}.ben,.steps{grid-template-columns:1fr 1fr}.dep,.plans{grid-template-columns:1fr}.nl a{display:none}.contact{padding:28px}
+ .sticky{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30}.sticky .btn{flex:1}body{padding-bottom:80px}}
+@media (max-width:560px){.ben,.steps,.g2{grid-template-columns:1fr}.navcta{display:none}}
+</style>
+</head>
+<body>
+<div class="demo"><span data-en="🔎 <b>Demo landing page</b>: Lumina Solar is a fictional company. Prices and testimonials are examples.">🔎 <b>Landing page de demonstração</b>: a Lumina Solar é uma empresa fictícia. Preços e depoimentos são exemplos.</span> · <a href="/" data-en="← Antonio Rocha's portfolio">← Portfólio de Antonio Rocha</a></div>
+<header class="top"><div class="wrap"><nav>
+  <a class="logo" href="#"><i>☀️</i>Lumina Solar</a>
+  <div class="nl">
+    <a href="#beneficios" data-en="Benefits">Vantagens</a><a href="#como" data-en="How it works">Como funciona</a><a href="#planos" data-en="Plans">Planos</a><a href="#faq">FAQ</a>
+    <button class="lang" id="lang">EN</button>
+    <a class="btn bp navcta" href="#contato" style="padding:10px 18px;font-size:14px;color:#fff" data-en="Free quote">Orçamento grátis</a>
+  </div>
+</nav></div></header>
+
+<div class="hero"><div class="wrap hg">
+  <div>
+    <span class="pill" data-en="🌱 Clean energy · 25-year warranty">🌱 Energia limpa · garantia de 25 anos</span>
+    <h1 data-en="Cut up to <span>95%</span> of your electricity bill">Reduza até <span>95%</span> da sua conta de luz</h1>
+    <p class="lead" data-en="Solar panels installed in up to 30 days, with financing that fits in what you already pay today. No upfront payment.">Energia solar instalada em até 30 dias, com financiamento que cabe no valor que você já paga hoje. Sem entrada.</p>
+    <div class="cta"><a class="btn bp" href="#contato" data-en="Get my free quote →">Quero meu orçamento grátis →</a><a class="btn bo" href="#simulador" data-en="Simulate savings">Simular economia</a></div>
+    <div class="trust"><span data-en="⚡ <b>Installation</b> in 30 days">⚡ <b>Instalação</b> em 30 dias</span><span data-en="🛡️ <b>25 years</b> panel warranty">🛡️ <b>25 anos</b> de garantia</span><span data-en="💳 <b>Up to 72x</b> financing">💳 <b>Até 72x</b> no financiamento</span></div>
+  </div>
+  <div class="sim" id="simulador">
+    <h3 data-en="☀️ Savings simulator">☀️ Simulador de economia</h3>
+    <p data-en="Move the bar to your average monthly bill.">Arraste até o valor médio da sua conta de luz.</p>
+    <label><span data-en="Monthly bill">Conta mensal</span><output id="vConta">R$ 450</output></label>
+    <input type="range" id="conta" min="150" max="3000" step="50" value="450" aria-label="Conta mensal">
+    <div class="res">
+      <div class="hl"><b id="rMes">R$ 0</b><span data-en="savings per month">de economia por mês</span></div>
+      <div class="hl"><b id="rAno">R$ 0</b><span data-en="savings per year">de economia por ano</span></div>
+      <div><b id="rPlacas">0</b><span data-en="panels (approx.)">placas (aprox.)</span></div>
+      <div><b id="rRetorno">0</b><span data-en="payback">retorno do investimento</span></div>
+    </div>
+    <small data-en="Illustrative estimate (5 kWh/m²/day irradiation, R$ 0.95/kWh, minimum fee). The final proposal depends on a technical visit.">Estimativa ilustrativa (irradiação de 5 kWh/m²/dia, tarifa de R$ 0,95/kWh e taxa mínima). A proposta final depende de visita técnica.</small>
+    <a class="btn bp" href="#contato" style="width:100%;margin-top:14px" data-en="I want this savings">Quero essa economia</a>
+  </div>
+</div></div>
+
+<div class="logos"><div class="wrap" data-en="Equipment from <b>tier-1 manufacturers</b> · Installation by <b>certified engineers</b> · Homologation with the <b>power utility</b> included">Equipamentos de <b>fabricantes tier 1</b> · Instalação por <b>engenheiros certificados</b> · Homologação na <b>distribuidora</b> inclusa</div></div>
+
+<section id="beneficios"><div class="wrap">
+  <div class="center"><div class="kick" data-en="Why solar">Por que energia solar</div><h2 data-en="More money in your pocket, every month">Mais dinheiro no seu bolso, todo mês</h2><p class="sub" data-en="Solar energy pays for itself and keeps saving for decades.">A energia solar se paga sozinha e continua economizando por décadas.</p></div>
+  <div class="ben">
+    <div class="b"><div class="ic">💰</div><h3 data-en="Save up to 95%">Economia de até 95%</h3><p data-en="You only pay the utility's minimum fee.">Você passa a pagar só a taxa mínima da distribuidora.</p></div>
+    <div class="b"><div class="ic">🏠</div><h3 data-en="Higher property value">Imóvel valorizado</h3><p data-en="Homes with solar sell faster and for more.">Casas com energia solar vendem mais rápido e por mais.</p></div>
+    <div class="b"><div class="ic">📱</div><h3 data-en="Track it on your phone">Acompanhe pelo app</h3><p data-en="See generation and savings in real time.">Veja a geração e a economia em tempo real.</p></div>
+    <div class="b"><div class="ic">🌳</div><h3 data-en="Sustainable">Sustentável</h3><p data-en="Clean energy that cuts CO₂ emissions.">Energia limpa que reduz a emissão de CO₂.</p></div>
+  </div>
+</div></section>
+
+<section id="como" style="background:var(--bg)"><div class="wrap">
+  <div class="center"><div class="kick" data-en="How it works">Como funciona</div><h2 data-en="From quote to savings in 4 steps">Do orçamento à economia em 4 passos</h2><p class="sub" data-en="We handle everything, including paperwork with the utility.">Nós cuidamos de tudo, inclusive da papelada com a distribuidora.</p></div>
+  <div class="steps">
+    <div class="step"><b data-en="Free quote">Orçamento grátis</b><span data-en="Send your bill and get a proposal in 24h.">Envie sua conta e receba a proposta em 24h.</span></div>
+    <div class="step"><b data-en="Technical visit">Visita técnica</b><span data-en="An engineer checks your roof and wiring.">Um engenheiro avalia o telhado e a parte elétrica.</span></div>
+    <div class="step"><b data-en="Installation">Instalação</b><span data-en="Done in 1 to 2 days, clean and safe.">Feita em 1 a 2 dias, com limpeza e segurança.</span></div>
+    <div class="step"><b data-en="Start saving">Comece a economizar</b><span data-en="After utility approval, your bill drops.">Após a aprovação da distribuidora, a conta cai.</span></div>
+  </div>
+</div></section>
+
+<section id="depoimentos"><div class="wrap">
+  <div class="center"><div class="kick" data-en="Testimonials">Depoimentos</div><h2 data-en="What customers say">O que os clientes dizem</h2></div>
+  <div class="dep">
+    <div class="d"><div class="st">★★★★★</div><p data-en="“My bill went from R$ 620 to R$ 48. The team handled everything with the utility.”">“Minha conta caiu de R$ 620 para R$ 48. A equipe resolveu tudo com a distribuidora.”</p><div class="who"><div class="av" style="background:#f97316">M</div><div><b data-en="Marina (example)">Marina (exemplo)</b><span data-en="Homeowner · Campinas">Residência · Campinas</span></div></div></div>
+    <div class="d"><div class="st">★★★★★</div><p data-en="“The installment is lower than the bill I used to pay. It was a no-brainer.”">“A parcela ficou menor que a conta que eu pagava. Foi a melhor decisão.”</p><div class="who"><div class="av" style="background:#16a34a">R</div><div><b data-en="Rafael (example)">Rafael (exemplo)</b><span data-en="Bakery owner · Santos">Padaria · Santos</span></div></div></div>
+    <div class="d"><div class="st">★★★★★</div><p data-en="“Installed in two days, very clean work. I check the generation on my phone.”">“Instalaram em dois dias, serviço muito limpo. Acompanho a geração pelo celular.”</p><div class="who"><div class="av" style="background:#0ea5e9">J</div><div><b data-en="Juliana (example)">Juliana (exemplo)</b><span data-en="Homeowner · Sorocaba">Residência · Sorocaba</span></div></div></div>
+  </div>
+  <div class="center"><span class="note" data-en="ℹ️ Illustrative testimonials created for this demo; they are not real customers.">ℹ️ Depoimentos ilustrativos criados para esta demonstração; não são clientes reais.</span></div>
+</div></section>
+
+<section id="planos" style="background:var(--bg)"><div class="wrap">
+  <div class="center"><div class="kick" data-en="Plans">Planos</div><h2 data-en="A kit for every bill">Um kit para cada conta</h2><p class="sub" data-en="Complete installation, homologation and monitoring included. Example prices.">Instalação completa, homologação e monitoramento inclusos. Preços de exemplo.</p></div>
+  <div class="plans">
+    <div class="pl"><h3 data-en="Essential">Essencial</h3><div class="for" data-en="Bills up to R$ 300">Contas de até R$ 300</div><div class="price">R$ 9.900</div><div class="alt" data-en="or 72x R$ 219">ou 72x de R$ 219</div><ul><li data-en="6 panels · 3.3 kWp">6 placas · 3,3 kWp</li><li data-en="Microinverter">Microinversor</li><li data-en="Monitoring app">App de monitoramento</li><li data-en="25-year warranty">Garantia de 25 anos</li></ul><a class="btn bo" href="#contato" data-plano="Essencial" data-en="Choose Essential">Escolher Essencial</a></div>
+    <div class="pl pop" data-tag="⭐ Mais escolhido" data-tag-en="⭐ Most popular"><h3 data-en="Family">Família</h3><div class="for" data-en="Bills from R$ 300 to R$ 700">Contas de R$ 300 a R$ 700</div><div class="price">R$ 16.900</div><div class="alt" data-en="or 72x R$ 369">ou 72x de R$ 369</div><ul><li data-en="12 panels · 6.6 kWp">12 placas · 6,6 kWp</li><li data-en="Hybrid inverter">Inversor híbrido</li><li data-en="Monitoring app">App de monitoramento</li><li data-en="1 free cleaning per year">1 limpeza grátis por ano</li><li data-en="25-year warranty">Garantia de 25 anos</li></ul><a class="btn bp" href="#contato" data-plano="Família" data-en="Choose Family">Escolher Família</a></div>
+    <div class="pl"><h3 data-en="Business">Empresa</h3><div class="for" data-en="Bills above R$ 700">Contas acima de R$ 700</div><div class="price" data-en="Custom">Sob medida</div><div class="alt" data-en="Financing in up to 72x">Financiamento em até 72x</div><ul><li data-en="Sized to your consumption">Dimensionado para o seu consumo</li><li data-en="Dedicated engineer">Engenheiro dedicado</li><li data-en="Remote monitoring">Monitoramento remoto</li><li data-en="Preventive maintenance">Manutenção preventiva</li></ul><a class="btn bo" href="#contato" data-plano="Empresa" data-en="Talk to a specialist">Falar com especialista</a></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="center"><div class="kick" data-en="FAQ">Dúvidas</div><h2 data-en="Frequently asked questions">Perguntas frequentes</h2></div>
+  <div class="faq">
+    <details open><summary data-en="Does it work on cloudy or rainy days?">Funciona em dias nublados ou de chuva?</summary><p data-en="Yes. Generation drops, but the credits produced on sunny days cover the difference.">Sim. A geração diminui, mas os créditos gerados nos dias de sol compensam a diferença.</p></details>
+    <details><summary data-en="What happens at night?">E à noite?</summary><p data-en="You use energy from the grid, paid with the credits you generated during the day.">Você usa a energia da rede, paga com os créditos que gerou durante o dia.</p></details>
+    <details><summary data-en="How long does the system last?">Quanto tempo dura o sistema?</summary><p data-en="Panels last more than 25 years, with a performance warranty.">As placas duram mais de 25 anos, com garantia de desempenho.</p></details>
+    <details><summary data-en="Do I need to pay anything upfront?">Preciso pagar entrada?</summary><p data-en="No. With financing, the installment usually fits in what you already pay for electricity.">Não. Com o financiamento, a parcela costuma caber no valor que você já paga de luz.</p></details>
+  </div>
+</div></section>
+
+<section id="contato" style="padding-top:20px"><div class="wrap"><div class="contact">
+  <div>
+    <div class="kick" style="color:#fde68a" data-en="Free quote">Orçamento grátis</div>
+    <h2 data-en="Find out how much you'll save">Descubra quanto você vai economizar</h2>
+    <p class="sub" data-en="Fill in the form and a specialist will contact you within 24 hours.">Preencha o formulário e um especialista entra em contato em até 24 horas.</p>
+    <ul><li data-en="Proposal in 24h, no commitment">Proposta em 24h, sem compromisso</li><li data-en="Free technical visit">Visita técnica gratuita</li><li data-en="Financing simulation included">Simulação de financiamento inclusa</li></ul>
+  </div>
+  <form id="form" novalidate>
+    <div><label for="nome" data-en="Name">Nome</label><input class="in" id="nome" name="nome" autocomplete="name" required></div>
+    <div class="g2"><div><label for="tel" data-en="WhatsApp / phone">WhatsApp / telefone</label><input class="in" id="tel" name="tel" inputmode="tel" autocomplete="tel" required></div>
+    <div><label for="cidade" data-en="City">Cidade</label><input class="in" id="cidade" name="cidade" autocomplete="address-level2"></div></div>
+    <div class="g2"><div><label for="valor" data-en="Average bill (R$)">Conta média (R$)</label><input class="in" id="valor" name="valor" type="number" min="0" value="450"></div>
+    <div><label for="plano" data-en="Plan of interest">Plano de interesse</label><select class="in" id="plano" name="plano"><option value="" data-en="Not sure yet">Ainda não sei</option><option>Essencial</option><option>Família</option><option>Empresa</option></select></div></div>
+    <div class="err" id="err"></div>
+    <button class="btn bp" type="submit" data-en="Get my free quote">Quero meu orçamento grátis</button>
+    <small style="color:var(--mut);font-size:12px;text-align:center" data-en="🔒 Demo: no data is sent or stored.">🔒 Demonstração: nenhum dado é enviado ou armazenado.</small>
+  </form>
+</div></div></section>
+
+<footer><span data-en="Demo landing page built by">Landing page de demonstração criada por</span> <a href="/">Antonio Rocha</a> · <span data-en="AI chatbot &amp; web app developer">desenvolvedor de chatbots com IA e apps web</span></footer>
+<div class="sticky"><a class="btn bp" href="#contato" data-en="Get my free quote →">Quero meu orçamento grátis →</a></div>
+
+<script>
+(function(){
+  var KEY='demo-lang', lang='pt';
+  function $(q){return document.querySelector(q)}
+  function brl(v){return v.toLocaleString(lang==='en'?'en-US':'pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0})}
+  function apply(l){
+    lang=l;document.documentElement.lang=l==='en'?'en':'pt-BR';
+    document.querySelectorAll('[data-en]').forEach(function(e){if(e.dataset.pt===undefined)e.dataset.pt=e.innerHTML;e.innerHTML=l==='en'?e.dataset.en:e.dataset.pt});
+    var pop=$('.pl.pop');pop.dataset.tag=l==='en'?pop.dataset.tagEn:'⭐ Mais escolhido';
+    $('#lang').textContent=l==='en'?'PT':'EN';
+    document.title=l==='en'?'Lumina Solar · Cut up to 95% of your power bill (demo)':'Lumina Solar · Reduza até 95% da conta de luz (demo)';
+    try{localStorage.setItem(KEY,l)}catch(e){}
+    sim();
+  }
+  function sim(){
+    var c=+$('#conta').value, tarifa=0.95, minimo=50;
+    var kwh=c/tarifa, kwp=kwh/(5*30*0.8), placas=Math.max(4,Math.ceil(kwp*1000/550));
+    var eco=Math.max(0,c-minimo), custo=kwp*3000, meses=Math.round(custo/eco);
+    $('#vConta').textContent=brl(c);$('#rMes').textContent=brl(eco);$('#rAno').textContent=brl(eco*12);$('#rPlacas').textContent=placas;
+    var anos=meses/12;$('#rRetorno').textContent=lang==='en'?(anos<1.5?meses+' months':'~'+anos.toFixed(1)+' years'):(anos<1.5?meses+' meses':'~'+anos.toFixed(1).replace('.',',')+' anos');
+  }
+  $('#conta').addEventListener('input',function(){sim();$('#valor').value=$('#conta').value});
+  var q=new URLSearchParams(location.search).get('lang');
+  var l=q||(function(){try{return localStorage.getItem(KEY)}catch(e){return null}})()||'pt';
+  if(l==='en')apply('en');else sim();
+  $('#lang').onclick=function(){apply(lang==='en'?'pt':'en')};
+  document.querySelectorAll('[data-plano]').forEach(function(a){a.addEventListener('click',function(){$('#plano').value=a.dataset.plano})});
+  $('#form').addEventListener('submit',function(e){
+    e.preventDefault();var f=e.target,en=lang==='en';
+    var nome=f.nome.value.trim(),tel=f.tel.value.replace(/\D/g,'');
+    if(nome.length<2){$('#err').textContent=en?'Please enter your name.':'Informe seu nome.';f.nome.focus();return}
+    if(tel.length<10){$('#err').textContent=en?'Please enter a valid phone number with area code.':'Informe um telefone válido com DDD.';f.tel.focus();return}
+    var primeiro=nome.split(' ')[0].replace(/[<>&"']/g,'');
+    f.innerHTML='<div class="ok"><div>🎉</div><h3>'+(en?'Thank you, '+primeiro+'!':'Obrigado, '+primeiro+'!')+'</h3><p style="color:var(--mut)">'+(en?'Your request was received. A specialist will contact you within 24 hours.':'Recebemos seu pedido. Um especialista vai falar com você em até 24 horas.')+'</p><p style="font-size:12px;color:var(--mut)">'+(en?'(Demo: nothing was sent.)':'(Demonstração: nada foi enviado.)')+'</p></div>';
+  });
+})();
+</script>
+</body>
+</html>

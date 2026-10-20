@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clínica Sorriso · Demo de chatbot com IA</title>
+<meta name="description" content="Demonstração de chatbot de atendimento com IA para sites, instalado com uma linha de código.">
+<meta name="theme-color" content="#0ea5e9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+<script>if(location.pathname.slice(-1)!=='/'&&!/\.\w+$/.test(location.pathname))history.replaceState(null,'',location.pathname+'/'+location.search+location.hash)</script>
+<style>
+:root{--p:#0ea5e9;--pd:#0369a1;--ink:#0f172a;--mut:#64748b;--bg:#f8fafc;--line:#e2e8f0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+a{color:inherit}
+.demo{background:#0f172a;color:#e2e8f0;font-size:13px;text-align:center;padding:9px 16px}
+.demo a{color:#7dd3fc;font-weight:600}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none;color:var(--pd)}
+.logo span{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#38bdf8,#0284c7);display:grid;place-items:center;font-size:20px}
+.nl{display:flex;gap:22px;align-items:center}.nl a{text-decoration:none;color:var(--mut);font-size:15px}.nl a:hover{color:var(--ink)}
+.lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;font-weight:700;font-size:13px;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:15px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.bp{background:var(--p);color:#fff;box-shadow:0 10px 24px -8px rgba(14,165,233,.6)}.bs{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.hero{background:linear-gradient(180deg,#f0f9ff,#fff);padding:30px 0 70px}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.pill{display:inline-block;background:#e0f2fe;color:var(--pd);font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.08;letter-spacing:-.03em;margin:16px 0}
+h1 em{font-style:normal;color:var(--p)}
+.lead{font-size:18px;color:var(--mut);max-width:560px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.stats{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}.stats b{display:block;font-size:22px}.stats span{color:var(--mut);font-size:13px}
+.art{position:relative;height:380px;border-radius:28px;background:radial-gradient(circle at 30% 20%,#bae6fd,transparent 50%),linear-gradient(135deg,#0ea5e9,#6366f1);overflow:hidden;box-shadow:0 30px 70px -30px rgba(2,132,199,.6)}
+.art .tooth{position:absolute;font-size:150px;left:50%;top:46%;transform:translate(-50%,-50%);filter:drop-shadow(0 20px 30px rgba(0,0,0,.25))}
+.art .c{position:absolute;background:#fff;border-radius:16px;padding:12px 14px;font-size:13px;box-shadow:0 14px 30px rgba(15,23,42,.2);max-width:210px}
+.art .c1{left:18px;top:22px}.art .c2{right:18px;bottom:24px}
+.art .c b{display:block;font-size:14px}
+section{padding:72px 0}
+.kick{color:var(--p);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+h2{font-size:clamp(28px,3.4vw,38px);letter-spacing:-.025em;margin:6px 0 10px;line-height:1.15}
+.sub{color:var(--mut);max-width:620px;margin:0 0 32px}
+.sv{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.s{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff;transition:box-shadow .2s,transform .2s;cursor:pointer}
+.s:hover{box-shadow:0 18px 40px -20px rgba(15,23,42,.25);transform:translateY(-3px)}
+.s .i{font-size:28px}.s h3{margin:8px 0 2px;font-size:18px}.s p{margin:0;color:var(--mut);font-size:14px}
+.s .pr{margin-top:12px;font-weight:800;color:var(--pd)}
+.s .ask{font-size:12px;color:var(--p);font-weight:700;margin-top:6px}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ib{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:24px}
+.ib h3{margin:0 0 10px}
+.ib table{width:100%;border-collapse:collapse;font-size:15px}.ib td{padding:7px 0;border-bottom:1px dashed var(--line)}.ib td:last-child{text-align:right;font-weight:700}
+.install{background:#0b1220;color:#e2e8f0}
+.install .kick{color:#7dd3fc}.install .sub{color:#94a3b8}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.code{background:#020617;border:1px solid #1e293b;border-radius:16px;overflow:hidden}
+.code .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid #1e293b;font-size:12px;color:#64748b}
+.code .bar i{width:10px;height:10px;border-radius:50%;background:#334155}
+.code .bar button{margin-left:auto;background:#1e293b;color:#e2e8f0;border:0;border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer}
+pre{margin:0;padding:18px;overflow-x:auto;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.tg{color:#7dd3fc}.at{color:#c4b5fd}.st{color:#86efac}.cm{color:#64748b}
+.feat{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.feat li{display:flex;gap:12px}.feat li b{display:block;color:#fff}.feat li span{color:#94a3b8;font-size:14px}
+.feat .k{flex:none;width:34px;height:34px;border-radius:10px;background:#0c4a6e;display:grid;place-items:center}
+.try{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap}
+.try button{background:#0c4a6e;color:#e0f2fe;border:1px solid #075985;border-radius:999px;padding:7px 14px;cursor:pointer;font-size:13px}
+.try button:hover{background:#0369a1}
+footer{padding:30px 0 40px;color:var(--mut);font-size:13px;text-align:center}
+footer a{color:var(--pd);font-weight:600}
+@media (max-width:900px){.hg,.ig,.info{grid-template-columns:1fr}.sv{grid-template-columns:1fr 1fr}.nl a{display:none}.art{height:300px}}
+@media (max-width:560px){.sv{grid-template-columns:1fr}.navcta{display:none}}
+</style>
+</head>
+<body>
+<div class="demo"><span data-en="🔎 This is a <b>demo</b>: Clínica Sorriso is a fictional business. Try the chat in the bottom-right corner.">🔎 Isto é uma <b>demonstração</b>: a Clínica Sorriso é fictícia. Teste o chat no canto inferior direito.</span> · <a href="/" data-en="← Antonio Rocha's portfolio">← Portfólio de Antonio Rocha</a></div>
+
+<div class="hero"><div class="wrap">
+<nav>
+  <a class="logo" href="#"><span>🦷</span>Clínica Sorriso</a>
+  <div class="nl">
+    <a href="#servicos" data-en="Treatments">Tratamentos</a>
+    <a href="#info" data-en="Hours">Horários</a>
+    <a href="#instalar" data-en="Install the chat">Instalar o chat</a>
+    <button class="lang" id="lang">EN</button>
+    <button class="btn bp navcta" data-perg="Quero agendar uma avaliação" data-perg-en="I want to book a check-up" data-en="Book a check-up">Agendar avaliação</button>
+  </div>
+</nav>
+<div class="hg">
+  <div>
+    <span class="pill" data-en="✨ First check-up is free">✨ Primeira avaliação grátis</span>
+    <h1 data-en="Your best <em>smile</em> starts here">Seu melhor <em>sorriso</em> começa aqui</h1>
+    <p class="lead" data-en="Modern dentistry on Av. Paulista: cleaning, whitening, implants and braces with transparent prices. Have a question? Our virtual assistant answers 24/7.">Odontologia moderna na Av. Paulista: limpeza, clareamento, implantes e aparelhos com preço transparente. Ficou com dúvida? Nossa assistente virtual responde 24 horas.</p>
+    <div class="cta">
+      <button class="btn bp" data-perg="Quero agendar uma avaliação" data-perg-en="I want to book a check-up" data-en="Book a free check-up">Agendar avaliação grátis</button>
+      <button class="btn bs" data-perg="Quais são os preços?" data-perg-en="What are your prices?" data-en="💬 Ask the assistant">💬 Perguntar à assistente</button>
+    </div>
+    <div class="stats"><div><b>24h</b><span data-en="instant answers">respostas na hora</span></div><div><b>12x</b><span data-en="interest-free">sem juros</span></div><div><b>4</b><span data-en="insurance plans">convênios aceitos</span></div></div>
+  </div>
+  <div class="art" aria-hidden="true">
+    <div class="tooth">🦷</div>
+    <div class="c c1"><b data-en="Cleaning">Limpeza</b><span data-en="R$ 180 · 40 min">R$ 180 · 40 min</span></div>
+    <div class="c c2"><b data-en="💬 Assistant">💬 Assistente</b><span data-en="“We're open Saturdays 8am–1pm!”">“Abrimos aos sábados das 8h às 13h!”</span></div>
+  </div>
+</div>
+</div></div>
+
+<section id="servicos"><div class="wrap">
+  <div class="kick" data-en="Treatments">Tratamentos</div>
+  <h2 data-en="Clear prices, no surprises">Preços claros, sem surpresa</h2>
+  <p class="sub" data-en="Click any treatment to ask the assistant about it.">Clique em um tratamento para perguntar à assistente.</p>
+  <div class="sv">
+    <div class="s" data-perg="Quanto custa a limpeza?" data-perg-en="How much is a cleaning?"><div class="i">🪥</div><h3 data-en="Cleaning">Limpeza</h3><p data-en="Tartar removal, polishing and fluoride.">Remoção de tártaro, polimento e flúor.</p><div class="pr">R$ 180</div><div class="ask" data-en="Ask the chat →">Perguntar no chat →</div></div>
+    <div class="s" data-perg="Como funciona o clareamento?" data-perg-en="How does whitening work?"><div class="i">✨</div><h3 data-en="Whitening">Clareamento</h3><p data-en="In-office + take-home trays.">Consultório + moldeira caseira.</p><div class="pr">R$ 890</div><div class="ask" data-en="Ask the chat →">Perguntar no chat →</div></div>
+    <div class="s" data-perg="Quanto custa um implante?" data-perg-en="How much is an implant?"><div class="i">🦷</div><h3 data-en="Implants">Implantes</h3><p data-en="Implant + crown, up to 12 installments.">Implante + coroa, em até 12x.</p><div class="pr" data-en="from R$ 2,900">a partir de R$ 2.900</div><div class="ask" data-en="Ask the chat →">Perguntar no chat →</div></div>
+    <div class="s" data-perg="Quanto custa o aparelho?" data-perg-en="How much are braces?"><div class="i">😁</div><h3 data-en="Braces &amp; aligners">Aparelhos e alinhadores</h3><p data-en="Fixed braces or clear aligners.">Fixo ou alinhador transparente.</p><div class="pr" data-en="from R$ 180/month">a partir de R$ 180/mês</div><div class="ask" data-en="Ask the chat →">Perguntar no chat →</div></div>
+    <div class="s" data-perg="Quanto custa um canal?" data-perg-en="How much is a root canal?"><div class="i">🩺</div><h3 data-en="Root canal">Canal</h3><p data-en="Emergency slots every day.">Horários de urgência todos os dias.</p><div class="pr" data-en="from R$ 750">a partir de R$ 750</div><div class="ask" data-en="Ask the chat →">Perguntar no chat →</div></div>
+    <div class="s" data-perg="Vocês atendem crianças?" data-perg-en="Do you see children?"><div class="i">👶</div><h3 data-en="Kids">Odontopediatria</h3><p data-en="Tuesdays and Thursdays, from age 1.">Terças e quintas, a partir de 1 ano.</p><div class="pr" data-en="Free check-up">Avaliação grátis</div><div class="ask" data-en="Ask the chat →">Perguntar no chat →</div></div>
+  </div>
+</div></section>
+
+<section id="info" style="padding-top:0"><div class="wrap"><div class="info">
+  <div class="ib"><h3 data-en="🕘 Opening hours">🕘 Horários</h3><table>
+    <tr><td data-en="Monday to Friday">Segunda a sexta</td><td data-en="8am – 7pm">8h às 19h</td></tr>
+    <tr><td data-en="Saturday">Sábado</td><td data-en="8am – 1pm">8h às 13h</td></tr>
+    <tr><td data-en="Sundays &amp; holidays">Domingos e feriados</td><td data-en="Emergencies only">Só urgências</td></tr></table></div>
+  <div class="ib"><h3 data-en="📍 Location">📍 Onde estamos</h3><p style="margin:0 0 8px" data-en="Av. Paulista, 1000, suite 52 · São Paulo<br>2 min from Trianon-Masp station · parking in the building">Av. Paulista, 1000, sala 52 · São Paulo (SP)<br>2 min do metrô Trianon-Masp · estacionamento no prédio</p><p style="margin:0" data-en="Insurance: Amil, Bradesco, SulAmérica, OdontoPrev">Convênios: Amil, Bradesco, SulAmérica, OdontoPrev</p></div>
+</div></div></section>
+
+<section class="install" id="instalar"><div class="wrap"><div class="ig">
+  <div>
+    <div class="kick" data-en="For business owners">Para donos de negócio</div>
+    <h2 data-en="Install on your site with one line">Instale no seu site com uma linha</h2>
+    <p class="sub" data-en="The chat you see in the corner works on any website (WordPress, Wix, Shopify, plain HTML). Paste this before &lt;/body&gt; and it's live:">O chat que você vê no canto funciona em qualquer site (WordPress, Wix, Shopify, HTML). Basta colar isto antes do &lt;/body&gt; e ele já aparece:</p>
+    <div class="code"><div class="bar"><i></i><i></i><i></i>&nbsp;index.html<button id="copy" data-en="Copy">Copiar</button></div>
+<pre id="snip"><span class="cm">&lt;!-- Chatbot com IA · Antonio Rocha --&gt;</span>
+<span class="tg">&lt;script</span> <span class="at">src</span>=<span class="st">"https://demo.viralmedia.vip/chatbot/widget.js"</span>
+        <span class="at">data-titulo</span>=<span class="st">"Clínica Sorriso"</span> <span class="at">data-cor</span>=<span class="st">"#0ea5e9"</span>
+        <span class="at">defer</span><span class="tg">&gt;&lt;/script&gt;</span></pre></div>
+    <div class="try"><span style="color:#94a3b8;font-size:13px;align-self:center" data-en="Try asking:">Teste perguntando:</span>
+      <button data-perg="Vocês abrem sábado?" data-perg-en="Are you open on Saturday?" data-en="Open on Saturday?">Abrem sábado?</button>
+      <button data-perg="Aceitam Unimed ou Amil?" data-perg-en="Do you accept Amil insurance?" data-en="Insurance?">Aceitam convênio?</button>
+      <button data-perg="Dá pra parcelar no cartão?" data-perg-en="Can I pay in installments?" data-en="Installments?">Parcela no cartão?</button>
+      <button data-perg="Onde fica a clínica?" data-perg-en="Where are you located?" data-en="Where is it?">Onde fica?</button>
+    </div>
+  </div>
+  <ul class="feat">
+    <li><span class="k">⏱️</span><div><b data-en="Answers 24/7">Atende 24 horas</b><span data-en="Customers get instant answers even when your team is offline.">O cliente tem resposta na hora, mesmo com a equipe offline.</span></div></li>
+    <li><span class="k">📚</span><div><b data-en="Trained on your business">Treinado com o seu negócio</b><span data-en="Prices, hours, services and policies: it only answers with your information.">Preços, horários, serviços e regras: responde só com as suas informações.</span></div></li>
+    <li><span class="k">🧠</span><div><b data-en="AI-ready">Pronto para IA</b><span data-en="Works with smart FAQ matching (tolerates typos) and can connect to ChatGPT for open questions; the API key stays on the server.">Funciona com FAQ inteligente (entende erros de digitação) e pode ligar ao ChatGPT para perguntas livres; a chave fica só no servidor.</span></div></li>
+    <li><span class="k">🌎</span><div><b data-en="Portuguese &amp; English">Português e inglês</b><span data-en="Switch the language at the top and the chat follows.">Troque o idioma no topo e o chat acompanha.</span></div></li>
+    <li><span class="k">🎨</span><div><b data-en="Your brand">Com a sua marca</b><span data-en="Color, name and avatar customizable; no WhatsApp or extra app needed.">Cor, nome e avatar personalizáveis; sem WhatsApp nem app extra.</span></div></li>
+  </ul>
+</div></div></section>
+
+<footer><span data-en="Demo built by">Demonstração criada por</span> <a href="/">Antonio Rocha</a> · <span data-en="AI chatbot &amp; web app developer">desenvolvedor de chatbots com IA e apps web</span></footer>
+
+<script src="{{BASE}}/widget.js" data-titulo="Clínica Sorriso" data-cor="#0ea5e9" defer></script>
+<script>
+(function(){
+  var KEY='demo-lang';
+  function apply(l){
+    document.documentElement.lang=l==='en'?'en':'pt-BR';
+    document.querySelectorAll('[data-en]').forEach(function(e){if(e.dataset.pt===undefined)e.dataset.pt=e.innerHTML;e.innerHTML=l==='en'?e.dataset.en:e.dataset.pt});
+    document.getElementById('lang').textContent=l==='en'?'PT':'EN';
+    document.title=l==='en'?'Clínica Sorriso · AI chatbot demo':'Clínica Sorriso · Demo de chatbot com IA';
+    try{localStorage.setItem(KEY,l)}catch(e){}
+  }
+  var q=new URLSearchParams(location.search).get('lang');
+  var l=q||(function(){try{return localStorage.getItem(KEY)}catch(e){return null}})()||'pt';
+  if(l!=='pt')apply(l);
+  document.getElementById('lang').onclick=function(){apply(document.documentElement.lang==='en'?'pt':'en')};
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-perg]');if(!b)return;var en=document.documentElement.lang==='en';window.dispatchEvent(new CustomEvent('chatwidget:abrir',{detail:en?b.dataset.pergEn:b.dataset.perg}))});
+  document.getElementById('copy').onclick=function(){var t=document.getElementById('snip').innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){var c=document.getElementById('copy');c.textContent=document.documentElement.lang==='en'?'Copied ✓':'Copiado ✓';setTimeout(function(){c.textContent=document.documentElement.lang==='en'?'Copy':'Copiar'},1800)}).catch(function(){})};
+})();
+</script>
+</body>
+</html>
