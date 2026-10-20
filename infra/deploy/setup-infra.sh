@@ -45,6 +45,18 @@ else
   exit 1
 fi
 
+
+# Diagnostico (somente leitura): quem atende o dominio principal e o www neste Nginx
+echo "== Blocos do Nginx que citam o dominio principal (viralmedia.vip / www):"
+for f in /etc/nginx/sites-enabled/* /etc/nginx/conf.d/*; do
+  [ -f "$f" ] || continue
+  if grep -qE 'server_name[^;]*([[:space:]]|^)(www\.)?viralmedia\.vip([[:space:];]|$)' "$f"; then
+    echo "-- $f -> $(readlink -f "$f")"
+    grep -nE 'server_name|listen|proxy_pass|root |return |include ' "$f" | head -40
+  fi
+done
+docker ps --format '{{.Names}} {{.Image}} {{.Ports}}' 2>/dev/null | grep -iE 'wordpress|wp|mysql|mariadb' || echo "(nenhum container wordpress/mysql)"
+
 # Remove containers do formato antigo (porta por cliente)
 docker compose -p fiverr-teste down --remove-orphans 2>/dev/null || true
 
