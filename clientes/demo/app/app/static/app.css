@@ -16,7 +16,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .view{max-width:760px;margin:0 auto;padding:16px 16px 70px}
 h2{color:var(--navy);font-size:22px;margin:6px 0 14px;letter-spacing:-.02em}
 h3{font-size:15px;margin:22px 0 10px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.hero{background:var(--hero);color:#fff;border-radius:14px;padding:20px;box-shadow:0 18px 40px -20px rgba(124,58,237,.8)}
+.hero{background:var(--hero);color:#fff;border-radius:14px;padding:20px;box-shadow:0 18px 40px -20px rgba(15,35,64,.45)}
 .hero small{color:var(--sub)}.hero .big{font-size:32px;font-weight:800;letter-spacing:-.02em;margin:2px 0 10px}
 .hero .row{display:flex;gap:10px}.hero .row div{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--out);border-radius:10px;padding:10px 12px}
 .hero .row b{display:block;font-size:17px}.hero .row span{font-size:12px;opacity:.9}
