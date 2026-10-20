@@ -26,3 +26,9 @@ infra/                         # Traefik, Nginx curinga e scripts de deploy
 
 Sem portas para gerenciar e sem editar o Nginx. Segredos (chaves de API do cliente) ficam so no servidor, em `.env.secrets`.
 Se o cliente pedir o codigo-fonte, a pasta do projeto e extraida para um repositorio proprio.
+
+## Gestão
+
+Quadro: [Fiverr - Clientes](https://github.com/users/antonioufla/projects/4). Cada pedido vira uma issue (modelo "Pedido do Fiverr") e um card.
+Status: Proposta → Conversando → Em desenvolvimento → Em revisão → Entregue → Pago (ou Cancelado).
+Commits com `fecha #N` fecham a issue do pedido.
