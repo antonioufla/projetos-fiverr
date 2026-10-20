@@ -25,13 +25,14 @@ rm -f "$NGINX_DIR"/*.viralmedia.vip.conf
 # Exclui da regex todo subdominio que ja tem site proprio no Nginx (sites antigos)
 EXISTENTES=$(grep -hoE 'server_name[^;]*' /etc/nginx/sites-enabled/* /etc/nginx/conf.d/* 2>/dev/null \
   | sed 's/server_name//' | tr ' ' '\n' | grep -E '^[a-z0-9-]+\.viralmedia\.vip$' \
-  | sed 's/\.viralmedia\.vip$//' | sort -u | paste -sd'|')
+  | sed 's/\.viralmedia\.vip$//' | sort -u | paste -sd'|' || true)
 echo "Subdominios existentes preservados: $EXISTENTES"
-if [ -n "$EXISTENTES" ]; then
-  REGEX="~^(?!(?:$EXISTENTES)\\.)(?<cliente>[a-z0-9-]+)\\.viralmedia\\.vip\$"
-else
-  REGEX="~^(?<cliente>[a-z0-9-]+)\\.viralmedia\\.vip\$"
+if [ -z "$EXISTENTES" ]; then
+  echo "Nao consegui ler os sites existentes; mantendo configuracao anterior"
+  cp -a "$BACKUP"/*.conf "$NGINX_DIR"/ 2>/dev/null || true
+  exit 1
 fi
+REGEX="~^(?!(?:$EXISTENTES)\\.)(?<cliente>[a-z0-9-]+)\\.viralmedia\\.vip\$"
 MODELO=$(cat "$REPO/infra/nginx/00-fiverr-curinga.conf")
 printf '%s\n' "${MODELO//__REGEX__/$REGEX}" > "$NGINX_DIR/00-fiverr-curinga.conf"
 grep server_name "$NGINX_DIR/00-fiverr-curinga.conf"
