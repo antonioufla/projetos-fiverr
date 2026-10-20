@@ -19,7 +19,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import FastAPI, Header, HTTPException, Request
-from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse, Response
+from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse, RedirectResponse, Response
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -29,8 +30,43 @@ DADOS = Path(os.getenv("DADOS", "/srv/dados"))
 TOKEN_SHA256 = os.getenv("PEDIDOS_TOKEN_SHA256", "ba8409e14796355eb0aa10501b625f5b500785b4ebde16094d7c4774fc50862f").strip().lower()
 TIPOS = {"chatbot", "app", "landing", "logo", "prompts", "python", "make", "outro"}
 
+CANONICO = os.getenv("CANONICO", "").strip().lower()  # ex.: viralmedia.vip (ativa o redirecionamento)
+# Enderecos do WordPress antigo: mandam para a pagina inicial em vez de dar erro
+ANTIGOS = {"/pv_felipe", "/pv01", "/terms", "/privacy-policy-2", "/sample-page", "/home", "/feed",
+           "/comments/feed", "/wp-admin", "/wp-login.php", "/wp-json", "/xmlrpc.php"}
+
 app = FastAPI(title="Viral Media", docs_url=None, redoc_url=None, openapi_url=None)
 app.mount("/static", StaticFiles(directory=AQUI / "static"), name="static")
+
+
+@app.middleware("http")
+async def canonico(request: Request, call_next):
+    # com CANONICO definido, o subdominio de teste (novo.) redireciona para o dominio principal
+    host = request.headers.get("host", "").split(":")[0].lower()
+    if CANONICO and host.startswith("novo.") and request.url.path != "/saude" and request.method in ("GET", "HEAD"):
+        destino = f"https://{CANONICO}{request.url.path}" + (f"?{request.url.query}" if request.url.query else "")
+        return RedirectResponse(destino, status_code=301)
+    return await call_next(request)
+
+
+PAGINA_404 = """<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Página não encontrada · Viral Media</title><link rel="icon" href="/static/favicon.png">
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+background:linear-gradient(120deg,#0F2340 0%,#0F2E45 55%,#0E4249 100%);color:#fff;text-align:center;padding:24px}
+.k{color:#2DD4BF;font-weight:700;letter-spacing:.14em;font-size:13px}h1{font-size:34px;margin:12px 0}p{color:#C3CFDC;margin:0 0 28px}
+a{display:inline-block;background:#0F766E;color:#fff;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:10px}a:hover{background:#115E59}</style></head>
+<body><div><div class="k">ERRO 404</div><h1>Página não encontrada</h1><p>O endereço que você abriu não existe mais ou mudou de lugar.<br>Page not found.</p>
+<a href="/">Ir para a página inicial</a></div></body></html>"""
+
+
+@app.exception_handler(StarletteHTTPException)
+async def erro_http(request: Request, exc: StarletteHTTPException):
+    caminho = request.url.path.rstrip("/") or "/"
+    if exc.status_code == 404 and not caminho.startswith("/api"):
+        if caminho in ANTIGOS or caminho.startswith(("/wp-", "/category/", "/author/", "/tag/")):
+            return RedirectResponse("/", status_code=301)
+        return HTMLResponse(PAGINA_404, status_code=404)
+    return JSONResponse({"detail": exc.detail}, status_code=exc.status_code)
 
 
 # ---------- banco ----------

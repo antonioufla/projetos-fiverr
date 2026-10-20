@@ -15,7 +15,7 @@ if [ ! -d "$SRC" ]; then
 fi
 [ -f "$SRC/Dockerfile" ] || { echo "Sem Dockerfile em $ID/$PROJ, pulando"; exit 0; }
 
-CAMINHO=/
+CAMINHO=/; HOSTS=""; CANONICO=""
 [ -f "$SRC/projeto.env" ] && { set -a; . "$SRC/projeto.env"; set +a; }
 CAMINHO="/${CAMINHO#/}"; CAMINHO="${CAMINHO%/}"; [ -z "$CAMINHO" ] && CAMINHO=/
 HOST="$ID.viralmedia.vip"
@@ -28,10 +28,16 @@ mkdir -p "$DEST/dados"
 touch "$DEST/.env.secrets"   # segredos do cliente ficam so no servidor, nunca no Git
 
 R="r-$ID-$PROJ"
+# HOSTS (opcional, projeto.env): dominios extras separados por virgula, ex. viralmedia.vip,www.viralmedia.vip
+HOSTRULE="Host(\`$HOST\`)"
+for H in ${HOSTS//,/ }; do
+  [[ "$H" =~ ^[a-z0-9.-]+$ ]] || { echo "Host invalido em HOSTS: $H"; exit 1; }
+  HOSTRULE="$HOSTRULE || Host(\`$H\`)"
+done
 if [ "$CAMINHO" = "/" ]; then
-  RULE="Host(\`$HOST\`)"; ROOT_PATH=""; MW=""
+  RULE="($HOSTRULE)"; ROOT_PATH=""; MW=""
 else
-  RULE="Host(\`$HOST\`) && PathPrefix(\`$CAMINHO\`)"; ROOT_PATH="$CAMINHO"
+  RULE="($HOSTRULE) && PathPrefix(\`$CAMINHO\`)"; ROOT_PATH="$CAMINHO"
   MW="      - traefik.http.middlewares.$R-strip.stripprefix.prefixes=$CAMINHO
       - traefik.http.routers.$R.middlewares=$R-strip"
 fi
@@ -50,6 +56,8 @@ services:
       VERSAO: "$VERSAO"
       ROOT_PATH: "$ROOT_PATH"
       CLIENTE: "$ID"
+      HOSTS: "$HOSTS"
+      CANONICO: "$CANONICO"
     volumes:
       - ./dados:/srv/dados
     networks: [fiverr]

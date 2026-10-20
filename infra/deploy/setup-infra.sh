@@ -36,6 +36,14 @@ REGEX="~^(?!(?:$EXISTENTES)\\.)(?<cliente>[a-z0-9-]+)\\.viralmedia\\.vip\$"
 MODELO=$(cat "$REPO/infra/nginx/00-fiverr-curinga.conf")
 printf '%s\n' "${MODELO//__REGEX__/$REGEX}" > "$NGINX_DIR/00-fiverr-curinga.conf"
 grep server_name "$NGINX_DIR/00-fiverr-curinga.conf"
+# Dominio principal (viralmedia.vip) e www -> Traefik. So instala se nenhum outro site do Nginx ja usa esses nomes.
+if grep -rqsE 'server_name[^;]*[[:space:]](www\.)?viralmedia\.vip([[:space:];]|$)' /etc/nginx/sites-enabled /etc/nginx/conf.d; then
+  echo "AVISO: outro site do Nginx ja usa viralmedia.vip/www; bloco do dominio principal NAO instalado"
+  rm -f "$NGINX_DIR/01-fiverr-principal.conf"
+else
+  cp "$REPO/infra/nginx/01-fiverr-principal.conf" "$NGINX_DIR/01-fiverr-principal.conf"
+  echo "Bloco do dominio principal instalado"
+fi
 if sudo /usr/sbin/nginx -t; then
   sudo /usr/bin/systemctl reload nginx
 else
@@ -45,15 +53,6 @@ else
   exit 1
 fi
 
-
-# Diagnostico (somente leitura): quem atende o dominio principal e o www neste Nginx
-echo "== Diagnostico dominio principal"
-grep -rnE 'default_server|server_name[^;]*([[:space:]])(www\.)?viralmedia\.vip([[:space:];]|$)|server_name[[:space:]]+_' /etc/nginx 2>/dev/null | grep -v '/projetos-fiver/' | head -30 || true
-grep -rnE '^[[:space:]]*include' /etc/nginx/nginx.conf 2>/dev/null || true
-for f in $(grep -rlE 'default_server' /etc/nginx/sites-enabled /etc/nginx/conf.d 2>/dev/null); do
-  echo "-- default: $f"; grep -nE 'server_name|listen|proxy_pass|root |return ' "$f" | head -30
-done
-echo "== fim diagnostico"
 
 # Remove containers do formato antigo (porta por cliente)
 docker compose -p fiverr-teste down --remove-orphans 2>/dev/null || true
