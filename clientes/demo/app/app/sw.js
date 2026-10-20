@@ -3,7 +3,7 @@ const CACHE = 'orcafacil-{{VERSAO}}';
 const BASE = '{{BASE}}';
 const ARQUIVOS = [
   BASE + '/', BASE + '/manifest.webmanifest', BASE + '/static/app.css?v={{VERSAO}}', BASE + '/static/app.js?v={{VERSAO}}',
-  BASE + '/static/icons/icon-192.png', BASE + '/static/icons/icon-512.png', BASE + '/static/icons/favicon.png',
+  BASE + '/static/icons/icon-192.png?v={{VERSAO}}', BASE + '/static/icons/icon-512.png?v={{VERSAO}}', BASE + '/static/icons/favicon.png?v={{VERSAO}}',
 ];
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ARQUIVOS)).then(() => self.skipWaiting()));

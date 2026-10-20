@@ -5,36 +5,37 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Clínica Sorriso · Demo de chatbot com IA</title>
 <meta name="description" content="Demonstração de chatbot de atendimento com IA para sites, instalado com uma linha de código.">
-<meta name="theme-color" content="#0ea5e9">
+<meta name="theme-color" content="#0F2340">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
 <script>if(location.pathname.slice(-1)!=='/'&&!/\.\w+$/.test(location.pathname))history.replaceState(null,'',location.pathname+'/'+location.search+location.hash)</script>
 <style>
-:root{--p:#0ea5e9;--pd:#0369a1;--ink:#0f172a;--mut:#64748b;--bg:#f8fafc;--line:#e2e8f0}
+:root{--p:#0F766E;--pd:#115E59;--ink:#1E293B;--navy:#0F2340;--mut:#475569;--bg:#F5F7FA;--line:#E2E8F0;--acc:#2DD4BF;--sub:#C3CFDC;--out:#3A5878;--tint:#E7F1F0;--hero:linear-gradient(120deg,#0F2340 0%,#0F2E45 55%,#0E4249 100%)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+h1,h2,h3{color:var(--navy)}
 a{color:inherit}
-.demo{background:#0f172a;color:#e2e8f0;font-size:13px;text-align:center;padding:9px 16px}
-.demo a{color:#7dd3fc;font-weight:600}
+.demo{background:var(--navy);color:var(--sub);font-size:13px;text-align:center;padding:9px 16px}
+.demo a{color:var(--acc);font-weight:600}
 .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
 nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:14px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none;color:var(--pd)}
-.logo span{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#38bdf8,#0284c7);display:grid;place-items:center;font-size:20px}
+.logo span{width:38px;height:38px;border-radius:10px;background:var(--tint);display:grid;place-items:center;font-size:20px}
 .nl{display:flex;gap:22px;align-items:center}.nl a{text-decoration:none;color:var(--mut);font-size:15px}.nl a:hover{color:var(--ink)}
-.lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;font-weight:700;font-size:13px;color:var(--ink)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:15px;transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
-.bp{background:var(--p);color:#fff;box-shadow:0 10px 24px -8px rgba(14,165,233,.6)}.bs{background:#fff;border:1px solid var(--line);color:var(--ink)}
-.hero{background:linear-gradient(180deg,#f0f9ff,#fff);padding:30px 0 70px}
+.lang{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:13px;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:15px;transition:background .15s}
+.bp:hover{background:var(--pd)}
+.bp{background:var(--p);color:#fff}.bs{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.hero{background:var(--bg);border-bottom:1px solid var(--line);padding:30px 0 80px}
 .hg{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.pill{display:inline-block;background:#e0f2fe;color:var(--pd);font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px}
+.pill{display:inline-block;background:var(--tint);color:var(--pd);font-weight:600;font-size:13px;padding:6px 12px;border-radius:6px}
 h1{font-size:clamp(34px,5vw,54px);line-height:1.08;letter-spacing:-.03em;margin:16px 0}
 h1 em{font-style:normal;color:var(--p)}
 .lead{font-size:18px;color:var(--mut);max-width:560px}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 .stats{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}.stats b{display:block;font-size:22px}.stats span{color:var(--mut);font-size:13px}
-.art{position:relative;height:380px;border-radius:28px;background:radial-gradient(circle at 30% 20%,#bae6fd,transparent 50%),linear-gradient(135deg,#0ea5e9,#6366f1);overflow:hidden;box-shadow:0 30px 70px -30px rgba(2,132,199,.6)}
-.art .tooth{position:absolute;font-size:150px;left:50%;top:46%;transform:translate(-50%,-50%);filter:drop-shadow(0 20px 30px rgba(0,0,0,.25))}
-.art .c{position:absolute;background:#fff;border-radius:16px;padding:12px 14px;font-size:13px;box-shadow:0 14px 30px rgba(15,23,42,.2);max-width:210px}
+.art{position:relative;height:380px;border-radius:16px;background:var(--hero);overflow:hidden;box-shadow:0 30px 70px -30px rgba(2,132,199,.6)}
+.art .tooth{position:absolute;font-size:150px;left:50%;top:46%;transform:translate(-50%,-50%);opacity:.92}
+.art .c{position:absolute;background:#fff;border-radius:10px;padding:12px 14px;font-size:13px;box-shadow:0 14px 30px rgba(15,23,42,.2);max-width:210px}
 .art .c1{left:18px;top:22px}.art .c2{right:18px;bottom:24px}
 .art .c b{display:block;font-size:14px}
 section{padding:72px 0}
@@ -42,8 +43,8 @@ section{padding:72px 0}
 h2{font-size:clamp(28px,3.4vw,38px);letter-spacing:-.025em;margin:6px 0 10px;line-height:1.15}
 .sub{color:var(--mut);max-width:620px;margin:0 0 32px}
 .sv{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.s{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff;transition:box-shadow .2s,transform .2s;cursor:pointer}
-.s:hover{box-shadow:0 18px 40px -20px rgba(15,23,42,.25);transform:translateY(-3px)}
+.s{border:1px solid var(--line);border-radius:12px;padding:22px;background:#fff;transition:box-shadow .2s,transform .2s;cursor:pointer}
+.s:hover{border-color:#B8D6D3;box-shadow:0 16px 40px -24px rgba(15,35,64,.35)}
 .s .i{font-size:28px}.s h3{margin:8px 0 2px;font-size:18px}.s p{margin:0;color:var(--mut);font-size:14px}
 .s .pr{margin-top:12px;font-weight:800;color:var(--pd)}
 .s .ask{font-size:12px;color:var(--p);font-weight:700;margin-top:6px}
@@ -51,21 +52,22 @@ h2{font-size:clamp(28px,3.4vw,38px);letter-spacing:-.025em;margin:6px 0 10px;lin
 .ib{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:24px}
 .ib h3{margin:0 0 10px}
 .ib table{width:100%;border-collapse:collapse;font-size:15px}.ib td{padding:7px 0;border-bottom:1px dashed var(--line)}.ib td:last-child{text-align:right;font-weight:700}
-.install{background:#0b1220;color:#e2e8f0}
-.install .kick{color:#7dd3fc}.install .sub{color:#94a3b8}
+.install{background:var(--hero);color:#fff}
+.install h2{color:#fff}
+.install .kick{color:var(--acc)}.install .sub{color:var(--sub)}
 .ig{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
-.code{background:#020617;border:1px solid #1e293b;border-radius:16px;overflow:hidden}
-.code .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid #1e293b;font-size:12px;color:#64748b}
-.code .bar i{width:10px;height:10px;border-radius:50%;background:#334155}
-.code .bar button{margin-left:auto;background:#1e293b;color:#e2e8f0;border:0;border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer}
+.code{background:#0A1A30;border:1px solid var(--out);border-radius:12px;overflow:hidden}
+.code .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--out);font-size:12px;color:var(--sub)}
+.code .bar i{width:10px;height:10px;border-radius:50%;background:var(--out)}
+.code .bar button{margin-left:auto;background:var(--p);color:#fff;border:0;border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer}
 pre{margin:0;padding:18px;overflow-x:auto;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-.tg{color:#7dd3fc}.at{color:#c4b5fd}.st{color:#86efac}.cm{color:#64748b}
+.tg{color:var(--acc)}.at{color:var(--sub)}.st{color:#E2E8F0}.cm{color:#7B8FA6}
 .feat{list-style:none;padding:0;margin:0;display:grid;gap:14px}
-.feat li{display:flex;gap:12px}.feat li b{display:block;color:#fff}.feat li span{color:#94a3b8;font-size:14px}
-.feat .k{flex:none;width:34px;height:34px;border-radius:10px;background:#0c4a6e;display:grid;place-items:center}
+.feat li{display:flex;gap:12px}.feat li b{display:block;color:#fff}.feat li span{color:var(--sub);font-size:14px}
+.feat .k{flex:none;width:34px;height:34px;border-radius:8px;background:rgba(45,212,191,.12);border:1px solid var(--out);display:grid;place-items:center}
 .try{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap}
-.try button{background:#0c4a6e;color:#e0f2fe;border:1px solid #075985;border-radius:999px;padding:7px 14px;cursor:pointer;font-size:13px}
-.try button:hover{background:#0369a1}
+.try button{background:transparent;color:#fff;border:1px solid var(--out);border-radius:8px;padding:7px 14px;cursor:pointer;font-size:13px}
+.try button:hover{border-color:var(--acc)}
 footer{padding:30px 0 40px;color:var(--mut);font-size:13px;text-align:center}
 footer a{color:var(--pd);font-weight:600}
 @media (max-width:900px){.hg,.ig,.info{grid-template-columns:1fr}.sv{grid-template-columns:1fr 1fr}.nl a{display:none}.art{height:300px}}
@@ -135,9 +137,9 @@ footer a{color:var(--pd);font-weight:600}
     <div class="code"><div class="bar"><i></i><i></i><i></i>&nbsp;index.html<button id="copy" data-en="Copy">Copiar</button></div>
 <pre id="snip"><span class="cm">&lt;!-- Chatbot com IA · Antonio Rocha --&gt;</span>
 <span class="tg">&lt;script</span> <span class="at">src</span>=<span class="st">"https://demo.viralmedia.vip/chatbot/widget.js"</span>
-        <span class="at">data-titulo</span>=<span class="st">"Clínica Sorriso"</span> <span class="at">data-cor</span>=<span class="st">"#0ea5e9"</span>
+        <span class="at">data-titulo</span>=<span class="st">"Clínica Sorriso"</span> <span class="at">data-cor</span>=<span class="st">"#0F766E"</span>
         <span class="at">defer</span><span class="tg">&gt;&lt;/script&gt;</span></pre></div>
-    <div class="try"><span style="color:#94a3b8;font-size:13px;align-self:center" data-en="Try asking:">Teste perguntando:</span>
+    <div class="try"><span style="color:var(--sub);font-size:13px;align-self:center" data-en="Try asking:">Teste perguntando:</span>
       <button data-perg="Vocês abrem sábado?" data-perg-en="Are you open on Saturday?" data-en="Open on Saturday?">Abrem sábado?</button>
       <button data-perg="Aceitam Unimed ou Amil?" data-perg-en="Do you accept Amil insurance?" data-en="Insurance?">Aceitam convênio?</button>
       <button data-perg="Dá pra parcelar no cartão?" data-perg-en="Can I pay in installments?" data-en="Installments?">Parcela no cartão?</button>
@@ -155,7 +157,7 @@ footer a{color:var(--pd);font-weight:600}
 
 <footer><span data-en="Demo built by">Demonstração criada por</span> <a href="/">Antonio Rocha</a> · <span data-en="AI chatbot &amp; web app developer">desenvolvedor de chatbots com IA e apps web</span></footer>
 
-<script src="{{BASE}}/widget.js?v={{VERSAO}}" data-titulo="Clínica Sorriso" data-cor="#0ea5e9" defer></script>
+<script src="{{BASE}}/widget.js?v={{VERSAO}}p5" data-titulo="Clínica Sorriso" data-cor="#0F766E" defer></script>
 <script>
 (function(){
   var KEY='demo-lang';

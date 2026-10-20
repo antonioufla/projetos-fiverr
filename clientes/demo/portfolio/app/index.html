@@ -8,75 +8,78 @@
 <meta property="og:title" content="Antonio Rocha · AI chatbot & web app developer">
 <meta property="og:description" content="Demonstrações ao vivo: chatbot com IA para sites, aplicativo PWA e landing page.">
 <meta property="og:image" content="https://demo.viralmedia.vip/static/antonio.jpg">
-<meta name="theme-color" content="#0b1020">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%236366f1'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'>AR</text></svg>">
+<meta name="theme-color" content="#0F2340">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230F2340'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%232DD4BF' font-family='Arial' font-weight='700'>AR</text></svg>">
 <style>
-:root{--bg:#0b1020;--card:#121a33;--line:#24305a;--txt:#e7ebff;--mut:#9aa6d1;--a:#6366f1;--b:#22d3ee;--c:#a855f7}
+:root{--navy:#0F2340;--bg:#F5F7FA;--card:#FFFFFF;--txt:#1E293B;--mut:#475569;--line:#E2E8F0;--a:#0F766E;--ah:#115E59;--acc:#2DD4BF;--sub:#C3CFDC;--out:#3A5878;--tint:#E7F1F0;--hero:linear-gradient(120deg,#0F2340 0%,#0F2E45 55%,#0E4249 100%)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.65}
 a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
-.glow{position:fixed;inset:-20% -10% auto auto;width:60vw;height:60vw;background:radial-gradient(circle,rgba(99,102,241,.25),transparent 60%);pointer-events:none;z-index:-1}
-.glow2{position:fixed;inset:auto auto -25% -15%;width:55vw;height:55vw;background:radial-gradient(circle,rgba(34,211,238,.14),transparent 60%);pointer-events:none;z-index:-1}
-nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
-.logo{font-weight:800;letter-spacing:-.02em;font-size:18px;text-decoration:none}
-.logo span{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
-.navr{display:flex;gap:18px;align-items:center}
-.navr a{text-decoration:none;color:var(--mut);font-size:15px}.navr a:hover{color:var(--txt)}
-.lang{border:1px solid var(--line);background:transparent;color:var(--txt);border-radius:999px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:13px}
-.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;padding:56px 0 72px}
-.tag{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:rgba(99,102,241,.08);padding:6px 14px;border-radius:999px;font-size:13px;color:#c7cdf5}
-.dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
-h1{font-size:clamp(36px,5.4vw,60px);line-height:1.05;letter-spacing:-.035em;margin:18px 0}
-h1 .g{background:linear-gradient(90deg,#818cf8,#22d3ee 55%,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:19px;color:var(--mut);max-width:620px}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px)}
-.p{background:linear-gradient(135deg,var(--a),var(--c));color:#fff;box-shadow:0 10px 30px -10px rgba(99,102,241,.7)}
-.s{border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.band{background:var(--hero);color:#fff}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;font-size:18px;text-decoration:none;color:#fff}
+.logo:before{content:"";width:26px;height:26px;border-radius:7px;background:var(--acc)}
+.logo span{color:#fff}
+.navr{display:flex;gap:26px;align-items:center}
+.navr a{text-decoration:none;color:var(--sub);font-size:15px}.navr a:hover{color:#fff}
+.lang{border:1px solid var(--out);background:transparent;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:13px}
+.lang:hover{border-color:var(--sub)}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:56px;align-items:center;padding:56px 0 88px}
+.tag{display:inline-block;color:var(--acc);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+.dot{display:none}
+h1{font-size:clamp(34px,4.8vw,54px);line-height:1.1;letter-spacing:-.025em;margin:16px 0 18px;font-weight:700}
+h1 .g{color:var(--acc)}
+.lead{font-size:18px;color:var(--sub);max-width:600px;margin:0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:10px;font-weight:600;text-decoration:none;font-size:15px;transition:background .15s,border-color .15s}
+.p{background:var(--a);color:#fff}.p:hover{background:var(--ah)}
+.s{border:1px solid var(--out);color:#fff}.s:hover{border-color:var(--sub)}
 .photo{position:relative;justify-self:center}
-.photo img{width:min(320px,70vw);aspect-ratio:1;object-fit:cover;border-radius:28px;border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(99,102,241,.6)}
-.photo .badge{position:absolute;left:-18px;bottom:22px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-.photo .badge b{display:block;font-size:14px}
-section{padding:64px 0}
-.kick{color:#a5b4fc;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
-h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.03em;margin:8px 0 10px;line-height:1.15}
-.sub{color:var(--mut);max-width:640px;margin:0 0 34px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
-.card:hover{transform:translateY(-4px);border-color:#4f5dad;box-shadow:0 24px 60px -30px rgba(99,102,241,.7)}
-.thumb{height:170px;position:relative;display:grid;place-items:center;overflow:hidden}
-.t1{background:linear-gradient(135deg,#0ea5e9,#6366f1)}.t2{background:linear-gradient(135deg,#a855f7,#ec4899)}.t3{background:linear-gradient(135deg,#f59e0b,#ef4444)}
-.mock{width:78%;height:120px;background:rgba(255,255,255,.92);border-radius:12px 12px 0 0;position:absolute;bottom:0;box-shadow:0 -10px 30px rgba(0,0,0,.2);padding:12px}
-.mock i{display:block;height:8px;border-radius:4px;background:#e2e8f0;margin:6px 0}
-.mock i.h{width:55%;height:12px;background:#cbd5e1}.mock i.w{width:80%}.mock i.x{width:40%}
-.bub{position:absolute;right:16px;bottom:14px;width:38px;height:38px;border-radius:50%;background:#0ea5e9;display:grid;place-items:center;color:#fff;font-size:18px;box-shadow:0 6px 16px rgba(14,165,233,.5)}
-.chatmini{position:absolute;right:16px;bottom:58px;background:#fff;border-radius:10px;padding:6px 10px;font-size:11px;color:#0f172a;box-shadow:0 6px 20px rgba(0,0,0,.2)}
-.phone{width:84px;height:150px;background:#0f172a;border-radius:16px;border:3px solid rgba(255,255,255,.9);position:absolute;bottom:-14px;padding:10px 7px}
-.phone i{display:block;height:16px;border-radius:5px;background:rgba(255,255,255,.18);margin:5px 0}.phone i.a{background:#a855f7}
-.body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
-.body h3{margin:0;font-size:20px;letter-spacing:-.02em}
+.photo img{display:block;width:min(300px,64vw);aspect-ratio:1;object-fit:cover;border-radius:16px;border:1px solid var(--out)}
+.photo .badge{position:absolute;left:-22px;bottom:24px;background:#fff;color:var(--txt);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:13px;box-shadow:0 12px 30px -12px rgba(15,35,64,.45)}
+.photo .badge b{display:block;font-size:14px;color:var(--a)}
+section{padding:88px 0}
+.kick{color:var(--a);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+h2{font-size:clamp(26px,3.2vw,36px);letter-spacing:-.02em;margin:10px 0 12px;line-height:1.2;font-weight:700;color:var(--navy)}
+.sub{color:var(--mut);max-width:640px;margin:0 0 40px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:#B8D6D3;box-shadow:0 16px 40px -24px rgba(15,35,64,.35)}
+.thumb{height:168px;position:relative;display:grid;place-items:center;overflow:hidden;background:var(--hero)}
+.t1,.t2,.t3{background:var(--hero)}
+.mock{width:76%;height:118px;background:#fff;border-radius:10px 10px 0 0;position:absolute;bottom:0;padding:14px}
+.mock i{display:block;height:7px;border-radius:4px;background:var(--line);margin:7px 0}
+.mock i.h{width:55%;height:11px;background:#CBD5E1}.mock i.w{width:80%}.mock i.x{width:40%}
+.bub{position:absolute;right:18px;bottom:16px;width:36px;height:36px;border-radius:50%;background:var(--a);display:grid;place-items:center;color:#fff;font-size:16px}
+.chatmini{position:absolute;right:18px;bottom:60px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:11px;color:var(--txt)}
+.phone{width:82px;height:148px;background:var(--navy);border-radius:14px;border:3px solid #fff;position:absolute;bottom:-14px;padding:10px 7px}
+.phone i{display:block;height:15px;border-radius:4px;background:rgba(255,255,255,.14);margin:5px 0}.phone i.a{background:var(--acc)}
+.body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+.body h3{margin:0;font-size:19px;letter-spacing:-.01em;color:var(--navy)}
 .body p{margin:0;color:var(--mut);font-size:15px;flex:1}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:#c7cdf5}
-.go{margin-top:12px;font-weight:700;color:#a5b4fc;font-size:14px}
-.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.sv{border:1px solid var(--line);border-radius:16px;padding:20px;background:rgba(255,255,255,.02)}
-.sv .ic{font-size:24px}.sv h4{margin:8px 0 4px;font-size:16px}.sv p{margin:0;color:var(--mut);font-size:14px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
-.st{border-left:2px solid var(--a);padding:4px 0 4px 16px}.st b{display:block}.st span{color:var(--mut);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:12px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:3px 9px;color:var(--mut)}
+.go{margin-top:14px;font-weight:600;color:var(--a);font-size:14px}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sv{border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--card)}
+.sv .ic{width:40px;height:40px;border-radius:10px;background:var(--tint);display:grid;place-items:center;font-size:19px}
+.sv h4{margin:14px 0 6px;font-size:16px;color:var(--navy)}.sv p{margin:0;color:var(--mut);font-size:14.5px}
+.alt{background:var(--card);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.st{border-top:2px solid var(--a);padding:16px 0 0}.st b{display:block;color:var(--navy);margin-bottom:4px}.st span{color:var(--mut);font-size:14.5px}
 .stack{display:flex;flex-wrap:wrap;gap:10px}
-.stack span{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 14px;font-size:14px}
-.contact{border:1px solid var(--line);border-radius:24px;padding:40px;background:linear-gradient(135deg,rgba(99,102,241,.18),rgba(34,211,238,.08));text-align:center}
-.plat{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
-footer{color:var(--mut);font-size:13px;text-align:center;padding:36px 0 48px}
-@media (max-width:900px){.hero{grid-template-columns:1fr;text-align:center;padding-top:24px}.lead{margin:0 auto}.cta{justify-content:center}.grid3,.svc{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.navr a{display:none}.photo{order:-1}.photo .badge{left:50%;transform:translateX(-50%);bottom:-14px;white-space:nowrap}}
+.stack span{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:8px 14px;font-size:14px;color:var(--txt)}
+.contact{border-radius:16px;padding:56px 40px;background:var(--hero);text-align:center;color:#fff}
+.contact h2{color:#fff}.contact .kick{color:var(--acc)}.contact .sub{color:var(--sub)}
+.contact .s{color:#fff}
+.plat{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+footer{color:var(--mut);font-size:13px;text-align:center;padding:40px 0 52px}
+@media (max-width:900px){.hero{grid-template-columns:1fr;text-align:center;padding:24px 0 72px}.lead{margin:0 auto}.cta{justify-content:center}.grid3,.svc{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.navr a{display:none}.photo{order:-1}.photo .badge{left:50%;transform:translateX(-50%);bottom:-16px;white-space:nowrap}.contact{padding:40px 22px}}
 </style>
 </head>
 <body>
-<div class="glow"></div><div class="glow2"></div>
-<div class="wrap">
+<div class="band"><div class="wrap">
 <nav>
   <a class="logo" href="#">Antonio <span>Rocha</span></a>
   <div class="navr">
@@ -89,7 +92,7 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:36px 0 48px}
 
 <header class="hero">
   <div>
-    <span class="tag"><span class="dot"></span><span data-en="Available for new projects">Disponível para novos projetos</span></span>
+    <span class="tag" data-en="AI · Web apps · Automation">IA · Apps web · Automação</span>
     <h1 data-en="AI chatbots &amp; <span class='g'>web apps</span> that are ready to use">Chatbots com IA e <span class="g">apps web</span> prontos para usar</h1>
     <p class="lead" data-en="I'm Antonio Rocha, a developer focused on AI. I build smart support chatbots for websites, installable web apps (PWA), landing pages and Python automations, all delivered online with a link you can open right away.">Sou Antonio Rocha, desenvolvedor focado em inteligência artificial. Crio chatbots de atendimento para sites, aplicativos web instaláveis (PWA), landing pages e automações em Python, tudo entregue online, com um link que você já pode abrir e usar.</p>
     <div class="cta">
@@ -98,11 +101,11 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:36px 0 48px}
     </div>
   </div>
   <div class="photo">
-    <img src="{{BASE}}/static/antonio.jpg?v={{VERSAO}}" alt="Antonio Rocha" width="320" height="320">
+    <img src="{{BASE}}/static/antonio.jpg?v={{VERSAO}}p5" alt="Antonio Rocha" width="320" height="320">
     <div class="badge"><b data-en="Python · FastAPI · AI">Python · FastAPI · IA</b><span data-en="AI chatbot &amp; web app developer">Desenvolvedor de chatbots e apps</span></div>
   </div>
 </header>
-</div>
+</div></div>
 
 <section id="demos"><div class="wrap">
   <div class="kick" data-en="Live demos">Demonstrações ao vivo</div>
@@ -153,7 +156,7 @@ footer{color:var(--mut);font-size:13px;text-align:center;padding:36px 0 48px}
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section class="alt"><div class="wrap">
   <div class="kick" data-en="How it works">Como funciona</div>
   <h2 data-en="Simple from start to finish">Simples do começo ao fim</h2>
   <div class="steps" style="margin-top:28px">
