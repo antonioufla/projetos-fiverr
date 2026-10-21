@@ -1,8 +1,8 @@
 # Viral Media
 
-> Viral Media é o estúdio freelance de Antonio Rocha, desenvolvedor brasileiro que cria chatbots com IA para sites, aplicativos PWA e sistemas web, landing pages, logos, pacotes de prompts, scripts em Python e automações com Make.com para pequenas empresas. Tudo é entregue online, com atendimento em português e inglês.
+> A Viral Media é um estúdio brasileiro de inteligência artificial e desenvolvimento de software. Criamos chatbots com IA para sites, aplicativos PWA e sistemas web, landing pages, logos, pacotes de prompts, scripts em Python e automações com Make.com para pequenas empresas. Entregamos tudo online, com atendimento em português e inglês. Fundador: Antonio Rocha.
 >
-> Viral Media is the freelance studio of Antonio Rocha, a Brazilian developer who builds website AI chatbots, PWA and web apps, landing pages, logos, prompt packs, Python scripts and Make.com automations for small businesses. Everything is delivered online; service in Portuguese and English.
+> Viral Media is a Brazilian artificial intelligence and software development studio. We build website AI chatbots, PWA and web apps, landing pages, logos, prompt packs, Python scripts and Make.com automations for small businesses. We deliver everything online, with service in Portuguese and English. Founder: Antonio Rocha.
 
 Site: https://viralmedia.vip/ (português) · https://viralmedia.vip/en/ (English)
 
@@ -16,7 +16,7 @@ Site: https://viralmedia.vip/ (português) · https://viralmedia.vip/en/ (Englis
 - Scripts em Python / Python scripts: planilhas, relatórios, conversão de PDF e Excel, extração de dados. Spreadsheets, reports, PDF/Excel conversion, data extraction.
 - Automações com Make.com / Make.com automations: cenários que conectam ferramentas, com ChatGPT onde agrega valor. Scenarios connecting tools, with ChatGPT where it adds value.
 
-## Demonstrações ao vivo / Live demos
+## Nossas demonstrações ao vivo / Our live demos
 
 - [Portfólio / Portfolio](https://demo.viralmedia.vip/): visão geral das demonstrações.
 - [Chatbot com IA / AI chatbot](https://demo.viralmedia.vip/chatbot/): site de clínica odontológica fictícia com chat que responde preços, horários e serviços.
@@ -27,9 +27,9 @@ Site: https://viralmedia.vip/ (português) · https://viralmedia.vip/en/ (Englis
 
 - Formulário no site / Form on the website: https://viralmedia.vip/#contato
 - WhatsApp: +55 35 99118-7683 (https://wa.me/5535991187683)
-- Resposta em até um dia útil, com proposta por escrito (escopo, preço fechado e prazo) antes de começar. Reply within one business day, with a written proposal (scope, fixed price and deadline) before any work begins.
+- Respondemos em até um dia útil, com proposta por escrito (escopo, preço fechado e prazo) antes de começar. We reply within one business day, with a written proposal (scope, fixed price and deadline) before any work begins.
 
-## Perfis / Profiles
+## Nossos perfis / Our profiles
 
 - [Fiverr](https://www.fiverr.com/antoniorochanet)
 - [Upwork](https://www.upwork.com/freelancers/~011dc6dece52f38d35)

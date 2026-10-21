@@ -1,7 +1,7 @@
 # Viral Media — conteúdo completo / full content
 
-> Estúdio freelance de Antonio Rocha: inteligência artificial aplicada a pequenos negócios. Chatbots com IA para sites, aplicativos PWA e sistemas web, landing pages, logos, pacotes de prompts, scripts em Python e automações com Make.com. Entrega online, atendimento em português e inglês.
-> Freelance studio of Antonio Rocha: artificial intelligence applied to small businesses. Website AI chatbots, PWA and web apps, landing pages, logos, prompt packs, Python scripts and Make.com automations. Online delivery, service in Portuguese and English.
+> Estúdio de inteligência artificial e desenvolvimento de software: IA aplicada a pequenos negócios. Fundador: Antonio Rocha. Criamos chatbots com IA para sites, aplicativos PWA e sistemas web, landing pages, logos, pacotes de prompts, scripts em Python e automações com Make.com. Entrega online, atendimento em português e inglês.
+> Artificial intelligence and software development studio: AI applied to small businesses. Founder: Antonio Rocha. We build website AI chatbots, PWA and web apps, landing pages, logos, prompt packs, Python scripts and Make.com automations. Online delivery, service in Portuguese and English.
 
 Site: https://viralmedia.vip/ (pt-BR) · https://viralmedia.vip/en/ (en)
 Contato / Contact: formulário em https://viralmedia.vip/#contato · WhatsApp +55 35 99118-7683 (https://wa.me/5535991187683)
@@ -33,12 +33,12 @@ Tudo entregue online: um link funcionando ou arquivos prontos para usar.
 - **Pacotes de prompts:** prompts testados para ChatGPT e Claude, organizados para as tarefas do dia a dia.
 - **Scripts em Python:** planilhas, relatórios, conversão de PDF e Excel, extração de dados.
 - **Automações com Make.com:** cenários conectando suas ferramentas, com ChatGPT onde ele faz diferença.
-- **Outra ideia?** Conte o que você precisa e eu digo com sinceridade se consigo ajudar.
+- **Outra ideia?** Conte o que você precisa e diremos com sinceridade se podemos ajudar.
 
 ### Como funciona
 
 1. Conversa: você conta o que precisa, pelo formulário ou WhatsApp.
-2. Proposta: escopo, preço e prazo por escrito.
+2. Proposta: respondemos com escopo, preço e prazo por escrito.
 3. Desenvolvimento e revisão: você acompanha por um link ao vivo e pede ajustes.
 4. Entrega: publicado online ou entregue em arquivos, com instruções.
 
@@ -48,20 +48,20 @@ Tudo entregue online: um link funcionando ou arquivos prontos para usar.
 - Aplicativo instalável (PWA): https://demo.viralmedia.vip/app/ (orçamentos e agenda; instala no celular e funciona sem internet).
 - Landing page de vendas: https://demo.viralmedia.vip/landing/ (energia solar com simulador de economia, planos e formulário).
 
-### Sobre
+### Sobre a Viral Media
 
-Antonio Rocha é o desenvolvedor por trás da Viral Media. Trabalha com Python, FastAPI e ferramentas de IA para criar chatbots, aplicativos web e automações para pequenas empresas, sempre entregues online e prontos para usar. Foco em soluções práticas: escopo claro, prazos honestos e algo que o cliente já pode abrir e testar desde os primeiros dias do projeto.
+A Viral Media é um estúdio de inteligência artificial e desenvolvimento de software. Trabalhamos com Python, FastAPI e ferramentas de IA para criar chatbots, aplicativos web e automações para pequenas empresas, sempre entregues online e prontos para usar. Nosso foco são soluções práticas: escopo claro, prazos honestos e algo que o cliente já pode abrir e testar desde os primeiros dias do projeto. Fundada por Antonio Rocha, desenvolvedor em Python e ferramentas de IA.
 
-Perfis: Fiverr https://www.fiverr.com/antoniorochanet · Upwork https://www.upwork.com/freelancers/~011dc6dece52f38d35 · Freelancer.com https://www.freelancer.com/u/antoniorochaneto · 99Freelas https://www.99freelas.com.br/user/antonio-elizeu-da-rocha · Portfólio https://demo.viralmedia.vip/
+Nossos perfis: Fiverr https://www.fiverr.com/antoniorochanet · Upwork https://www.upwork.com/freelancers/~011dc6dece52f38d35 · Freelancer.com https://www.freelancer.com/u/antoniorochaneto · 99Freelas https://www.99freelas.com.br/user/antonio-elizeu-da-rocha · Portfólio https://demo.viralmedia.vip/
 
 ### Perguntas frequentes
 
-- **Quanto custa um projeto?** Depende do escopo. Depois de entender o que você precisa, é enviada uma proposta por escrito com preço fechado e prazo, antes de começar qualquer trabalho. A primeira conversa não tem custo.
-- **Quanto tempo leva?** Depende do tamanho do projeto. O prazo vem por escrito na proposta, e você acompanha o andamento por um link ao vivo desde os primeiros dias.
-- **Como o projeto é entregue?** Online: publicado em um link funcionando ou em arquivos prontos para usar, com o código-fonte em um repositório Git e instruções. Prompts, logos e scripts são entregues como arquivos.
+- **Quanto custa um projeto?** Depende do escopo. Depois de entender o que você precisa, enviamos uma proposta por escrito com preço fechado e prazo, antes de começar qualquer trabalho. A primeira conversa não tem custo.
+- **Quanto tempo leva?** Depende do tamanho do projeto. Informamos o prazo por escrito na proposta, e você acompanha o andamento por um link ao vivo desde os primeiros dias.
+- **Como o projeto é entregue?** Entregamos online: publicado em um link funcionando ou em arquivos prontos para usar, com o código-fonte em um repositório Git e instruções. Prompts, logos e scripts são entregues como arquivos.
 - **O chatbot funciona no meu site atual?** Na maioria dos casos, sim. Ele é instalado com uma linha de código e funciona em plataformas que permitem adicionar um script, como WordPress e sites próprios.
-- **Atende em inglês e clientes fora do Brasil?** Sim, em português e inglês, para clientes no Brasil e no exterior.
-- **Como peço um orçamento?** Pelo formulário em https://viralmedia.vip/#contato ou pelo WhatsApp +55 35 99118-7683. Resposta em até um dia útil.
+- **Vocês atendem em inglês e clientes fora do Brasil?** Sim, atendemos em português e inglês, clientes no Brasil e no exterior.
+- **Como peço um orçamento?** Pelo formulário em https://viralmedia.vip/#contato ou pelo WhatsApp +55 35 99118-7683. Respondemos em até um dia útil.
 
 ---
 
@@ -77,25 +77,27 @@ Perfis: Fiverr https://www.fiverr.com/antoniorochanet · Upwork https://www.upwo
 
 ### Services
 
-Website AI chatbot · PWA & web apps (Python/FastAPI, Android APK) · Landing pages · Logos & visual identity · Prompt packs for ChatGPT and Claude · Python scripts (spreadsheets, reports, PDF/Excel conversion, data extraction) · Make.com automations with ChatGPT. Everything is delivered online: a working link or ready-to-use files.
+Website AI chatbot · PWA & web apps (Python/FastAPI, Android APK) · Landing pages · Logos & visual identity · Prompt packs for ChatGPT and Claude · Python scripts (spreadsheets, reports, PDF/Excel conversion, data extraction) · Make.com automations with ChatGPT. We deliver everything online: a working link or ready-to-use files.
 
 ### How it works
 
-1. Briefing by form or WhatsApp. 2. Written proposal with scope, price and deadline. 3. Build and review through a live link. 4. Delivery online or as files, with instructions.
+1. Briefing by form or WhatsApp. 2. We send a written proposal with scope, price and deadline. 3. Build and review through a live link. 4. Delivery online or as files, with instructions.
 
 ### Live demos
 
 AI chatbot: https://demo.viralmedia.vip/chatbot/ · PWA app: https://demo.viralmedia.vip/app/ · Landing page: https://demo.viralmedia.vip/landing/ · Portfolio: https://demo.viralmedia.vip/
 
-### About
+### About Viral Media
 
-Antonio Rocha is the developer behind Viral Media. He works with Python, FastAPI and AI tools to build chatbots, web apps and automations for small businesses, always delivered online and ready to use, with clear scope and honest deadlines.
+Viral Media is an AI and software development studio. We work with Python, FastAPI and AI tools to build chatbots, web apps and automations for small businesses, always delivered online and ready to use, with clear scope and honest deadlines. Founded by Antonio Rocha, developer in Python and AI tools.
+
+Our profiles: Fiverr https://www.fiverr.com/antoniorochanet · Upwork https://www.upwork.com/freelancers/~011dc6dece52f38d35 · Freelancer.com https://www.freelancer.com/u/antoniorochaneto · 99Freelas https://www.99freelas.com.br/user/antonio-elizeu-da-rocha · Demos https://demo.viralmedia.vip/
 
 ### FAQ
 
-- **How much does a project cost?** It depends on the scope; you get a written proposal with a fixed price and deadline before any work begins. The first conversation is free.
+- **How much does a project cost?** It depends on the scope; we send a written proposal with a fixed price and deadline before any work begins. The first conversation is free.
 - **How long does it take?** It depends on the project size; the deadline is in the written proposal and progress is visible through a live link.
 - **How is it delivered?** Online, at a working link or as ready-to-use files, with source code in a Git repository and instructions.
 - **Will the chatbot work on my website?** In most cases, yes: it installs with one line of code on platforms that allow adding a script, such as WordPress and custom sites.
 - **Do you work in English and outside Brazil?** Yes, in Portuguese and English, with clients in Brazil and abroad.
-- **How do I request a quote?** Use the form at https://viralmedia.vip/en/#contato or WhatsApp +55 35 99118-7683. Reply within one business day.
+- **How do I request a quote?** Use the form at https://viralmedia.vip/en/#contato or WhatsApp +55 35 99118-7683. We reply within one business day.

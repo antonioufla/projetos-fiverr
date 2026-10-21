@@ -171,13 +171,13 @@ GET_HEAD = ["GET", "HEAD"]
 
 TEXTOS = {
     "pt": dict(lang="pt-BR", title="Viral Media · Chatbots com IA, apps PWA, landing pages e automações",
-               desc="Chatbots com IA para sites, aplicativos PWA, landing pages, logos, prompts, scripts em Python e automações com Make.com para pequenas empresas. Projetos entregues online por Antonio Rocha.",
-               ogdesc="Chatbots com IA, aplicativos PWA, landing pages e automações para pequenas empresas. Veja as demonstrações ao vivo.",
+               desc="A Viral Media é um estúdio de IA e desenvolvimento de software. Criamos chatbots com IA para sites, aplicativos PWA, landing pages, logos, prompts, scripts em Python e automações com Make.com para pequenas empresas, com entrega online.",
+               ogdesc="Estúdio de IA e software: criamos chatbots com IA, aplicativos PWA, landing pages e automações para pequenas empresas. Veja nossas demonstrações ao vivo.",
                ogalt="Viral Media: inteligência artificial aplicada ao seu negócio",
                oglocale="pt_BR", oglocale2="en_US", outra_url="/en/", outra_lang="en", outra_nome="English"),
     "en": dict(lang="en", title="Viral Media · AI chatbots, PWA apps, landing pages and automations",
-               desc="AI chatbots for websites, PWA apps, landing pages, logos, prompt packs, Python scripts and Make.com automations for small businesses. Delivered online by Antonio Rocha.",
-               ogdesc="AI chatbots, PWA apps, landing pages and automations for small businesses. See the live demos.",
+               desc="Viral Media is an AI and software development studio. We build website AI chatbots, PWA apps, landing pages, logos, prompt packs, Python scripts and Make.com automations for small businesses, delivered online.",
+               ogdesc="AI and software studio: we build AI chatbots, PWA apps, landing pages and automations for small businesses. See our live demos.",
                ogalt="Viral Media: artificial intelligence applied to your business",
                oglocale="en_US", oglocale2="pt_BR", outra_url="/", outra_lang="pt-BR", outra_nome="Português"),
 }
@@ -201,40 +201,40 @@ SERVICOS = [  # (pt nome, pt desc, en nome, en desc)
 
 FAQ = [  # (pt pergunta, pt resposta, en pergunta, en resposta); respostas podem ter HTML simples
     ("Quanto custa um projeto?",
-     "Depende do escopo. Depois de entender o que você precisa, eu envio uma proposta por escrito com preço fechado e prazo, antes de começar qualquer trabalho. A primeira conversa não tem custo.",
+     "Depende do escopo. Depois de entender o que você precisa, enviamos uma proposta por escrito com preço fechado e prazo, antes de começar qualquer trabalho. A primeira conversa não tem custo.",
      "How much does a project cost?",
-     "It depends on the scope. Once I understand what you need, I send a written proposal with a fixed price and deadline before any work begins. The first conversation is free."),
+     "It depends on the scope. Once we understand what you need, we send a written proposal with a fixed price and deadline before any work begins. The first conversation is free."),
     ("Quanto tempo leva para ficar pronto?",
-     "Depende do tamanho do projeto. O prazo vem por escrito na proposta, e você acompanha o andamento por um link ao vivo desde os primeiros dias.",
+     "Depende do tamanho do projeto. Informamos o prazo por escrito na proposta, e você acompanha o andamento por um link ao vivo desde os primeiros dias.",
      "How long does it take?",
-     "It depends on the size of the project. The deadline is stated in the written proposal, and you follow progress through a live link from the first days."),
+     "It depends on the size of the project. We state the deadline in the written proposal, and you follow progress through a live link from the first days."),
     ("Como o projeto é entregue?",
-     "Tudo é entregue online: publicado em um link funcionando ou em arquivos prontos para usar, com o código-fonte em um repositório Git e instruções. Prompts, logos e scripts são entregues como arquivos.",
+     "Entregamos tudo online: publicado em um link funcionando ou em arquivos prontos para usar, com o código-fonte em um repositório Git e instruções. Prompts, logos e scripts são entregues como arquivos.",
      "How is the project delivered?",
-     "Everything is delivered online: published at a working link or as ready-to-use files, with the source code in a Git repository and instructions. Prompts, logos and scripts are delivered as files."),
+     "We deliver everything online: published at a working link or as ready-to-use files, with the source code in a Git repository and instructions. Prompts, logos and scripts are delivered as files."),
     ("O chatbot funciona no meu site atual?",
-     "Na maioria dos casos, sim. O chatbot é instalado com uma linha de código e funciona em plataformas que permitem adicionar um script, como WordPress e sites próprios. Ele responde com as informações do seu negócio.",
+     "Na maioria dos casos, sim. Instalamos o chatbot com uma linha de código, e ele funciona em plataformas que permitem adicionar um script, como WordPress e sites próprios. Ele responde com as informações do seu negócio.",
      "Will the chatbot work on my current website?",
      "In most cases, yes. The chatbot installs with one line of code and works on platforms that let you add a script, such as WordPress and custom sites. It answers using your business information."),
-    ("Atende em inglês e clientes fora do Brasil?",
-     "Sim. O atendimento é em português e inglês, para clientes no Brasil e no exterior.",
+    ("Vocês atendem em inglês e clientes fora do Brasil?",
+     "Sim. Atendemos em português e inglês, clientes no Brasil e no exterior.",
      "Do you work in English and with clients outside Brazil?",
-     "Yes. I work in Portuguese and English, with clients in Brazil and abroad."),
+     "Yes. We work in Portuguese and English, with clients in Brazil and abroad."),
     ("Posso ver exemplos antes de contratar?",
-     'Sim. Há demonstrações funcionando de um chatbot, de um aplicativo PWA e de uma landing page em <a href="https://demo.viralmedia.vip/">demo.viralmedia.vip</a>.',
+     'Sim. Temos demonstrações funcionando de um chatbot, de um aplicativo PWA e de uma landing page em <a href="https://demo.viralmedia.vip/">demo.viralmedia.vip</a>.',
      "Can I see examples before hiring?",
-     'Yes. There are working demos of a chatbot, a PWA app and a landing page at <a href="https://demo.viralmedia.vip/">demo.viralmedia.vip</a>.'),
+     'Yes. We have working demos of a chatbot, a PWA app and a landing page at <a href="https://demo.viralmedia.vip/">demo.viralmedia.vip</a>.'),
     ("Como peço um orçamento?",
-     "Preencha o formulário desta página ou fale pelo WhatsApp +55 35 99118-7683. Costumo responder em até um dia útil.",
+     "Preencha o formulário desta página ou fale com a gente pelo WhatsApp +55 35 99118-7683. Respondemos em até um dia útil.",
      "How do I request a quote?",
-     "Fill in the form on this page or message me on WhatsApp at +55 35 99118-7683. I usually reply within one business day."),
+     "Fill in the form on this page or message us on WhatsApp at +55 35 99118-7683. We reply within one business day."),
 ]
 
 _TAG_EN = re.compile(r'<(\w+)((?:[^>"\']|"[^"]*"|\'[^\']*\')*?)\sdata-en="([^"]*)"((?:[^>"\']|"[^"]*"|\'[^\']*\')*)>(.*?)</\1>', re.S)
 _ALT_EN = {"Tela da demonstração de chatbot com IA no site da Clínica Sorriso": "AI chatbot demo on the Clínica Sorriso dental clinic website",
            "Tela do aplicativo PWA de orçamentos e agenda OrçaFácil": "OrçaFácil quotes and schedule PWA app demo",
            "Tela da landing page de energia solar Lumina Solar": "Lumina Solar energy landing page demo",
-           "Foto de Antonio Rocha, desenvolvedor da Viral Media": "Photo of Antonio Rocha, developer behind Viral Media"}
+           "Foto de Antonio Rocha, fundador da Viral Media": "Photo of Antonio Rocha, founder of Viral Media"}
 
 
 def _base(req: Request | None = None) -> str:
@@ -276,7 +276,8 @@ def _jsonld(idioma: str) -> str:
     grafo = [
         {"@type": ["Organization", "ProfessionalService"], "@id": org, "name": "Viral Media", "url": f"{b}/",
          "logo": f"{b}/static/icon-512.png", "image": f"{b}/static/og.png",
-         "description": TEXTOS[idioma]["desc"], "founder": {"@id": pessoa}, "employee": {"@id": pessoa},
+         "description": TEXTOS[idioma]["desc"], "slogan": "Artificial intelligence applied to your business" if en else "Inteligência artificial aplicada ao seu negócio",
+         "founder": {"@id": pessoa},
          "areaServed": [{"@type": "Country", "name": "Brazil"}, "Worldwide"],
          "knowsLanguage": ["pt-BR", "en"], "sameAs": PERFIS,
          "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "telephone": "+55 35 99118-7683",
@@ -288,7 +289,7 @@ def _jsonld(idioma: str) -> str:
                                  "@type": "Service", "name": s[2] if en else s[0], "description": s[3] if en else s[1],
                                  "provider": {"@id": org}, "areaServed": "Worldwide"}} for s in SERVICOS]}},
         {"@type": "Person", "@id": pessoa, "name": "Antonio Rocha", "url": f"{b}/#sobre",
-         "image": f"{b}/static/antonio.jpg", "jobTitle": "AI, web app and automation developer" if en else "Desenvolvedor de IA, apps web e automações",
+         "image": f"{b}/static/antonio.jpg", "jobTitle": "Founder" if en else "Fundador",
          "worksFor": {"@id": org}, "knowsLanguage": ["pt-BR", "en"], "sameAs": PERFIS + [f"{DEMOS}/"],
          "knowsAbout": ["Python", "FastAPI", "AI chatbots", "PWA", "Make.com", "Prompt engineering"]},
         {"@type": "WebSite", "@id": site, "url": f"{b}/", "name": "Viral Media", "inLanguage": ["pt-BR", "en"],
@@ -405,7 +406,9 @@ def indexnow_chave():
 
 @app.api_route("/site.webmanifest", methods=GET_HEAD)
 def manifest():
-    return JSONResponse({"name": "Viral Media", "short_name": "Viral Media", "start_url": "/", "display": "browser",
+    return JSONResponse({"name": "Viral Media · Estúdio de IA e software", "short_name": "Viral Media",
+                         "description": "Estúdio de IA e desenvolvimento de software: criamos chatbots com IA, apps PWA, landing pages e automações para pequenas empresas.",
+                         "start_url": "/", "display": "browser",
                          "background_color": "#F5F7FA", "theme_color": "#0F2340", "lang": "pt-BR",
                          "icons": [{"src": "/static/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
                                    {"src": "/static/icon-512.png", "sizes": "512x512", "type": "image/png"}]},
