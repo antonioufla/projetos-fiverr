@@ -124,7 +124,7 @@ def widget():
                     headers={"Cache-Control": "public, max-age=300", "Access-Control-Allow-Origin": "*"})
 
 
-@app.get("/", response_class=HTMLResponse)
+@app.api_route("/", methods=["GET", "HEAD"], response_class=HTMLResponse)
 def inicio():
     html = (AQUI / "index.html").read_text(encoding="utf-8").replace("{{BASE}}", BASE).replace("{{VERSAO}}", VERSAO)
     return HTMLResponse(html, headers={"Cache-Control": "no-cache"})

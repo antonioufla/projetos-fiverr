@@ -1,24 +1,38 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="{{LANG}}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Viral Media · Inteligência artificial aplicada ao seu negócio</title>
-<meta name="description" content="Chatbots com IA para sites, aplicativos PWA, landing pages, automações com Make e scripts em Python para pequenas empresas. Projetos entregues online por Antonio Rocha.">
-<link rel="canonical" href="{{URL}}/">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESC}}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Antonio Rocha">
+<link rel="canonical" href="{{CANON}}">
+<link rel="alternate" hreflang="pt-BR" href="{{URL}}/">
+<link rel="alternate" hreflang="en" href="{{URL}}/en/">
+<link rel="alternate" hreflang="x-default" href="{{URL}}/">
+<link rel="alternate" type="text/plain" title="llms.txt" href="{{URL}}/llms.txt">
 <meta name="theme-color" content="#0F2340">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Viral Media">
-<meta property="og:title" content="Viral Media · Inteligência artificial aplicada ao seu negócio">
-<meta property="og:description" content="Chatbots com IA, aplicativos PWA, landing pages e automações para pequenas empresas.">
-<meta property="og:url" content="{{URL}}/">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{OGDESC}}">
+<meta property="og:url" content="{{CANON}}">
 <meta property="og:image" content="{{URL}}/static/og.png?v={{VERSAO}}">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:locale" content="pt_BR"><meta property="og:locale:alternate" content="en_US">
+<meta property="og:image:alt" content="{{OGALT}}">
+<meta property="og:locale" content="{{OGLOCALE}}"><meta property="og:locale:alternate" content="{{OGLOCALE2}}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/static/favicon.png?v={{VERSAO}}">
-<link rel="apple-touch-icon" href="/static/apple-touch-icon.png?v={{VERSAO}}">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Viral Media","url":"{{URL}}/","image":"{{URL}}/static/og.png","description":"Chatbots com IA, aplicativos PWA, landing pages e automações para pequenas empresas.","founder":{"@type":"Person","name":"Antonio Rocha"},"areaServed":"BR","sameAs":["https://www.fiverr.com/antoniorochanet","https://www.upwork.com/freelancers/~011dc6dece52f38d35","https://www.freelancer.com/u/antoniorochaneto","https://www.99freelas.com.br/user/antonio-elizeu-da-rocha"]}</script>
+<meta name="twitter:title" content="{{TITLE}}">
+<meta name="twitter:description" content="{{OGDESC}}">
+<meta name="twitter:image" content="{{URL}}/static/og.png?v={{VERSAO}}">
+<meta name="twitter:image:alt" content="{{OGALT}}">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon.png?v={{VERSAO}}">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png?v={{VERSAO}}">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://demo.viralmedia.vip">
+<script type="application/ld+json">{{JSONLD}}</script>
 <style>
 :root{--navy:#0F2340;--bg:#F5F7FA;--card:#FFFFFF;--txt:#1E293B;--mut:#475569;--line:#E2E8F0;--a:#0F766E;--ah:#115E59;--acc:#2DD4BF;--sub:#C3CFDC;--out:#3A5878;--tint:#E7F1F0;--hero:linear-gradient(120deg,#0F2340 0%,#0F2E45 55%,#0E4249 100%)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
@@ -92,6 +106,8 @@ textarea.in{min-height:120px;resize:vertical}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .msg{font-size:14px;min-height:20px;color:#9F1D2B}
 .ok{text-align:center;padding:36px 10px}.ok .ic{margin:0 auto 14px;width:52px;height:52px}.ok h3{color:var(--navy);margin:0 0 8px}.ok p{color:var(--mut);margin:0}
+.faq{display:grid;gap:12px;max-width:860px}.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px}
+.faq summary{cursor:pointer;font-weight:600;color:var(--navy);font-size:16.5px}.faq details p{color:var(--mut);margin:10px 0 0;font-size:15.5px}.faq a{color:var(--a)}
 .priv{font-size:12.5px;color:var(--mut);margin:0}
 footer{background:var(--navy);color:var(--sub);padding:44px 0;font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
@@ -104,7 +120,7 @@ footer a{color:var(--sub);text-decoration:none;margin-left:18px}footer a:hover{c
 </head>
 <body>
 <header class="top"><div class="wrap"><nav>
-  <a class="logo" href="#">Viral Media</a>
+  <a class="logo" href="{{HOME}}">Viral Media</a>
   <div class="nl">
     <a href="#ia" data-en="AI for business">IA nos negócios</a>
     <a href="#servicos" data-en="Services">Serviços</a>
@@ -115,6 +131,7 @@ footer a{color:var(--sub);text-decoration:none;margin-left:18px}footer a:hover{c
   </div>
 </nav></div></header>
 
+<main>
 <div class="hero"><div class="wrap">
   <div class="kick" data-en="AI · Web apps · Automation">IA · Apps web · Automação</div>
   <h1 data-en="Artificial intelligence <span>applied to your business</span>">Inteligência artificial <span>aplicada ao seu negócio</span></h1>
@@ -194,14 +211,14 @@ footer a{color:var(--sub);text-decoration:none;margin-left:18px}footer a:hover{c
   <h2 data-en="See it working before you hire">Veja funcionando antes de contratar</h2>
   <p class="sub" data-en="Working examples built for fictional businesses. Open them and try.">Exemplos funcionando, feitos para empresas fictícias. Abra e teste.</p>
   <div class="g3">
-    <a class="demo" href="https://demo.viralmedia.vip/chatbot/" target="_blank" rel="noopener"><img src="/static/demo-chatbot.jpg?v={{VERSAO}}" alt="Demonstração do chatbot com IA" loading="lazy" width="800" height="500"><div><h3 data-en="Website AI chatbot">Chatbot com IA para site</h3><p data-en="A dental clinic site with a chat that answers prices, hours and services.">Site de uma clínica odontológica com chat que responde preços, horários e serviços.</p><span class="go" data-en="Try the chatbot →">Testar o chatbot →</span></div></a>
-    <a class="demo" href="https://demo.viralmedia.vip/app/" target="_blank" rel="noopener"><img src="/static/demo-app.jpg?v={{VERSAO}}" alt="Demonstração do aplicativo PWA" loading="lazy" width="800" height="500"><div><h3 data-en="Installable app (PWA)">Aplicativo instalável (PWA)</h3><p data-en="Quotes and schedule app that installs on the phone and works offline.">App de orçamentos e agenda que instala no celular e funciona sem internet.</p><span class="go" data-en="Open the app →">Abrir o app →</span></div></a>
-    <a class="demo" href="https://demo.viralmedia.vip/landing/" target="_blank" rel="noopener"><img src="/static/demo-landing.jpg?v={{VERSAO}}" alt="Demonstração de landing page" loading="lazy" width="800" height="500"><div><h3 data-en="Sales landing page">Landing page de vendas</h3><p data-en="A solar energy page with a savings simulator, plans and contact form.">Página de energia solar com simulador de economia, planos e formulário.</p><span class="go" data-en="View the page →">Ver a página →</span></div></a>
+    <a class="demo" href="https://demo.viralmedia.vip/chatbot/" target="_blank" rel="noopener"><img src="/static/demo-chatbot.jpg?v={{VERSAO}}" alt="Tela da demonstração de chatbot com IA no site da Clínica Sorriso" loading="lazy" decoding="async" width="800" height="500"><div><h3 data-en="Website AI chatbot">Chatbot com IA para site</h3><p data-en="A dental clinic site with a chat that answers prices, hours and services.">Site de uma clínica odontológica com chat que responde preços, horários e serviços.</p><span class="go" data-en="Try the chatbot →">Testar o chatbot →</span></div></a>
+    <a class="demo" href="https://demo.viralmedia.vip/app/" target="_blank" rel="noopener"><img src="/static/demo-app.jpg?v={{VERSAO}}" alt="Tela do aplicativo PWA de orçamentos e agenda OrçaFácil" loading="lazy" decoding="async" width="800" height="500"><div><h3 data-en="Installable app (PWA)">Aplicativo instalável (PWA)</h3><p data-en="Quotes and schedule app that installs on the phone and works offline.">App de orçamentos e agenda que instala no celular e funciona sem internet.</p><span class="go" data-en="Open the app →">Abrir o app →</span></div></a>
+    <a class="demo" href="https://demo.viralmedia.vip/landing/" target="_blank" rel="noopener"><img src="/static/demo-landing.jpg?v={{VERSAO}}" alt="Tela da landing page de energia solar Lumina Solar" loading="lazy" decoding="async" width="800" height="500"><div><h3 data-en="Sales landing page">Landing page de vendas</h3><p data-en="A solar energy page with a savings simulator, plans and contact form.">Página de energia solar com simulador de economia, planos e formulário.</p><span class="go" data-en="View the page →">Ver a página →</span></div></a>
   </div>
 </div></section>
 
 <section id="sobre"><div class="wrap about">
-  <img src="/static/antonio.jpg?v={{VERSAO}}" alt="Antonio Rocha" width="300" height="300" loading="lazy">
+  <img src="/static/antonio.jpg?v={{VERSAO}}" alt="Foto de Antonio Rocha, desenvolvedor da Viral Media" width="300" height="300" loading="lazy" decoding="async">
   <div>
     <div class="kick" data-en="About">Sobre</div>
     <h2>Antonio Rocha</h2>
@@ -214,6 +231,15 @@ footer a{color:var(--sub);text-decoration:none;margin-left:18px}footer a:hover{c
       <a href="https://www.99freelas.com.br/user/antonio-elizeu-da-rocha" target="_blank" rel="noopener">99Freelas</a>
       <a href="https://demo.viralmedia.vip/" target="_blank" rel="noopener" data-en="Portfolio">Portfólio</a>
     </div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="kick" data-en="FAQ">Perguntas frequentes</div>
+  <h2 data-en="Frequently asked questions">Dúvidas comuns</h2>
+  <p class="sub" data-en="Quick answers before you get in touch.">Respostas rápidas antes de você entrar em contato.</p>
+  <div class="faq">
+{{FAQ}}
   </div>
 </div></section>
 
@@ -257,17 +283,18 @@ footer a{color:var(--sub);text-decoration:none;margin-left:18px}footer a:hover{c
     </form>
   </div>
 </div></section>
+</main>
 
 <footer><div class="wrap">
   <span>© 2026 Viral Media · Antonio Rocha</span>
-  <span><a href="#servicos" data-en="Services">Serviços</a><a href="#demos" data-en="Demos">Demonstrações</a><a href="#contato" data-en="Contact">Contato</a></span>
+  <span><a href="#servicos" data-en="Services">Serviços</a><a href="#demos" data-en="Demos">Demonstrações</a><a href="#faq" data-en="FAQ">Dúvidas</a><a href="#contato" data-en="Contact">Contato</a><a href="{{OUTRA_URL}}" hreflang="{{OUTRA_LANG}}" lang="{{OUTRA_LANG}}">{{OUTRA_NOME}}</a></span>
 </div></footer>
 
 <a class="fwa wa-link" href="https://wa.me/5535991187683" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8C29 8.7 23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.6l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9 0-5.9 4.9-10.7 11-10.7S27 9.9 27 15.8s-4.9 10.6-11 10.6zm6-8c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2.1-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 2-.8 2.2-1.6.3-.8.3-1.4.2-1.6-.1-.1-.3-.2-.6-.4z"/></svg></a>
 
 <script>
 (function(){
-  var KEY='viralmedia-lang', lang='pt';
+  var KEY='viralmedia-lang', lang='pt', PAGE='{{LANGJS}}';
   var WA='https://wa.me/5535991187683?text=';
   var WAMSG={pt:'Olá Antonio, vim pelo site Viral Media e quero um orçamento.',en:'Hi Antonio, I found you through the Viral Media website and would like a quote.'};
   var T={pt:{nome:'Informe seu nome.',email:'Informe um e-mail válido.',tipo:'Escolha o tipo de serviço.',desc:'Descreva o projeto em pelo menos algumas palavras.',env:'Enviando…',erro:'Não foi possível enviar agora. Tente de novo ou fale pelo WhatsApp.',limite:'Muitos envios seguidos. Aguarde alguns minutos ou fale pelo WhatsApp.',okT:'Pedido enviado!',okP:'Obrigado, {n}. Vou ler com atenção e responder em breve pelo e-mail ou WhatsApp informado.'},
@@ -278,11 +305,11 @@ footer a{color:var(--sub);text-decoration:none;margin-left:18px}footer a:hover{c
     document.querySelectorAll('[data-en]').forEach(function(e){if(e.dataset.pt===undefined)e.dataset.pt=e.innerHTML;e.innerHTML=lang==='en'?e.dataset.en:e.dataset.pt});
     document.querySelectorAll('.wa-link').forEach(function(a){a.href=WA+encodeURIComponent(WAMSG[lang])});
     $('#lang').textContent=lang==='en'?'PT':'EN';
-    document.title=lang==='en'?'Viral Media · Artificial intelligence applied to your business':'Viral Media · Inteligência artificial aplicada ao seu negócio';
+    document.title=lang==='en'?'Viral Media · AI chatbots, PWA apps, landing pages and automations':'Viral Media · Chatbots com IA, apps PWA, landing pages e automações';
     try{localStorage.setItem(KEY,lang)}catch(e){}
   }
   var q=new URLSearchParams(location.search).get('lang');
-  apply(q||(function(){try{return localStorage.getItem(KEY)}catch(e){return null}})()||'pt');
+  apply(q||(PAGE==='en'?'en':null)||(function(){try{return localStorage.getItem(KEY)}catch(e){return null}})()||'pt');
   $('#lang').onclick=function(){apply(lang==='en'?'pt':'en')};
   $('#form').addEventListener('submit',function(e){
     e.preventDefault();var f=e.target,t=T[lang],m=$('#msg');m.textContent='';

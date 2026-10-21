@@ -10,6 +10,7 @@ Banco: $DADOS/pedidos.db (volume persistente /srv/dados).
 """
 import hashlib
 import hmac
+import json
 import os
 import re
 import sqlite3
@@ -159,8 +160,87 @@ def apagar(pid: int, authorization: str | None = Header(default=None)):
 
 
 # ---------- paginas e SEO ----------
-def _base(req: Request) -> str:
-    return f"https://{req.headers.get('host', 'viralmedia.vip')}"
+# Pagina unica em dois idiomas: / (pt-BR) e /en/ (ingles), ambas renderizadas no servidor (legiveis sem JS).
+# O ingles vem dos atributos data-en do index.html; o JS continua trocando o idioma na hora.
+INDEXNOW_KEY = "795a2ae49401e1a2027eba33694a3e07"  # chave publica do IndexNow (Bing/Yandex); o arquivo /<chave>.txt prova a posse
+WHATSAPP = "https://wa.me/5535991187683"
+PERFIS = ["https://www.fiverr.com/antoniorochanet", "https://www.upwork.com/freelancers/~011dc6dece52f38d35",
+          "https://www.freelancer.com/u/antoniorochaneto", "https://www.99freelas.com.br/user/antonio-elizeu-da-rocha"]
+DEMOS = "https://demo.viralmedia.vip"
+GET_HEAD = ["GET", "HEAD"]
+
+TEXTOS = {
+    "pt": dict(lang="pt-BR", title="Viral Media · Chatbots com IA, apps PWA, landing pages e automações",
+               desc="Chatbots com IA para sites, aplicativos PWA, landing pages, logos, prompts, scripts em Python e automações com Make.com para pequenas empresas. Projetos entregues online por Antonio Rocha.",
+               ogdesc="Chatbots com IA, aplicativos PWA, landing pages e automações para pequenas empresas. Veja as demonstrações ao vivo.",
+               ogalt="Viral Media: inteligência artificial aplicada ao seu negócio",
+               oglocale="pt_BR", oglocale2="en_US", outra_url="/en/", outra_lang="en", outra_nome="English"),
+    "en": dict(lang="en", title="Viral Media · AI chatbots, PWA apps, landing pages and automations",
+               desc="AI chatbots for websites, PWA apps, landing pages, logos, prompt packs, Python scripts and Make.com automations for small businesses. Delivered online by Antonio Rocha.",
+               ogdesc="AI chatbots, PWA apps, landing pages and automations for small businesses. See the live demos.",
+               ogalt="Viral Media: artificial intelligence applied to your business",
+               oglocale="en_US", oglocale2="pt_BR", outra_url="/", outra_lang="pt-BR", outra_nome="Português"),
+}
+
+SERVICOS = [  # (pt nome, pt desc, en nome, en desc)
+    ("Chatbot com IA para site", "Atende os visitantes 24 horas com as informações do seu negócio. Instala com uma linha de código.",
+     "Website AI chatbot", "Answers your visitors 24/7 with your business information. Installs with one line of code."),
+    ("Apps PWA e sistemas web", "Aplicativos instaláveis e sistemas em Python/FastAPI. Também podem ser entregues como APK.",
+     "PWA & web apps", "Installable apps and systems in Python/FastAPI. Can also be delivered as an Android APK."),
+    ("Landing pages", "Páginas rápidas e responsivas, focadas em transformar visitas em contatos.",
+     "Landing pages", "Fast, responsive pages focused on turning visitors into contacts."),
+    ("Logos e identidade visual", "Logo, cores e peças básicas da marca, criados com apoio de IA e refinados à mão.",
+     "Logos & visual identity", "Logo, colors and basic brand pieces, created with AI support and refined by hand."),
+    ("Pacotes de prompts", "Prompts testados para ChatGPT e Claude, organizados para as tarefas do seu dia a dia.",
+     "Prompt packs", "Tested prompts for ChatGPT and Claude, organized for your daily tasks."),
+    ("Scripts em Python", "Planilhas, relatórios, conversão de PDF e Excel, extração de dados.",
+     "Python scripts", "Spreadsheets, reports, PDF and Excel conversion, data extraction."),
+    ("Automações com Make.com", "Cenários conectando suas ferramentas, com ChatGPT onde ele faz diferença.",
+     "Make.com automations", "Scenarios connecting your tools, with ChatGPT where it adds value."),
+]
+
+FAQ = [  # (pt pergunta, pt resposta, en pergunta, en resposta); respostas podem ter HTML simples
+    ("Quanto custa um projeto?",
+     "Depende do escopo. Depois de entender o que você precisa, eu envio uma proposta por escrito com preço fechado e prazo, antes de começar qualquer trabalho. A primeira conversa não tem custo.",
+     "How much does a project cost?",
+     "It depends on the scope. Once I understand what you need, I send a written proposal with a fixed price and deadline before any work begins. The first conversation is free."),
+    ("Quanto tempo leva para ficar pronto?",
+     "Depende do tamanho do projeto. O prazo vem por escrito na proposta, e você acompanha o andamento por um link ao vivo desde os primeiros dias.",
+     "How long does it take?",
+     "It depends on the size of the project. The deadline is stated in the written proposal, and you follow progress through a live link from the first days."),
+    ("Como o projeto é entregue?",
+     "Tudo é entregue online: publicado em um link funcionando ou em arquivos prontos para usar, com o código-fonte em um repositório Git e instruções. Prompts, logos e scripts são entregues como arquivos.",
+     "How is the project delivered?",
+     "Everything is delivered online: published at a working link or as ready-to-use files, with the source code in a Git repository and instructions. Prompts, logos and scripts are delivered as files."),
+    ("O chatbot funciona no meu site atual?",
+     "Na maioria dos casos, sim. O chatbot é instalado com uma linha de código e funciona em plataformas que permitem adicionar um script, como WordPress e sites próprios. Ele responde com as informações do seu negócio.",
+     "Will the chatbot work on my current website?",
+     "In most cases, yes. The chatbot installs with one line of code and works on platforms that let you add a script, such as WordPress and custom sites. It answers using your business information."),
+    ("Atende em inglês e clientes fora do Brasil?",
+     "Sim. O atendimento é em português e inglês, para clientes no Brasil e no exterior.",
+     "Do you work in English and with clients outside Brazil?",
+     "Yes. I work in Portuguese and English, with clients in Brazil and abroad."),
+    ("Posso ver exemplos antes de contratar?",
+     'Sim. Há demonstrações funcionando de um chatbot, de um aplicativo PWA e de uma landing page em <a href="https://demo.viralmedia.vip/">demo.viralmedia.vip</a>.',
+     "Can I see examples before hiring?",
+     'Yes. There are working demos of a chatbot, a PWA app and a landing page at <a href="https://demo.viralmedia.vip/">demo.viralmedia.vip</a>.'),
+    ("Como peço um orçamento?",
+     "Preencha o formulário desta página ou fale pelo WhatsApp +55 35 99118-7683. Costumo responder em até um dia útil.",
+     "How do I request a quote?",
+     "Fill in the form on this page or message me on WhatsApp at +55 35 99118-7683. I usually reply within one business day."),
+]
+
+_TAG_EN = re.compile(r'<(\w+)((?:[^>"\']|"[^"]*"|\'[^\']*\')*?)\sdata-en="([^"]*)"((?:[^>"\']|"[^"]*"|\'[^\']*\')*)>(.*?)</\1>', re.S)
+_ALT_EN = {"Tela da demonstração de chatbot com IA no site da Clínica Sorriso": "AI chatbot demo on the Clínica Sorriso dental clinic website",
+           "Tela do aplicativo PWA de orçamentos e agenda OrçaFácil": "OrçaFácil quotes and schedule PWA app demo",
+           "Tela da landing page de energia solar Lumina Solar": "Lumina Solar energy landing page demo",
+           "Foto de Antonio Rocha, desenvolvedor da Viral Media": "Photo of Antonio Rocha, developer behind Viral Media"}
+
+
+def _base(req: Request | None = None) -> str:
+    if CANONICO:
+        return f"https://{CANONICO}"
+    return f"https://{req.headers.get('host', 'viralmedia.vip') if req else 'viralmedia.vip'}"
 
 
 def _staging(req: Request) -> bool:
@@ -168,38 +248,171 @@ def _staging(req: Request) -> bool:
     return req.headers.get("host", "").startswith("novo.")
 
 
-@app.get("/saude")
-def saude():
-    return {"ok": True, "versao": VERSAO}
+def _esc(t: str) -> str:
+    return t.replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-@app.get("/", response_class=HTMLResponse)
-def inicio(req: Request):
+def _para_ingles(html: str) -> str:
+    """Troca o conteudo de cada elemento com data-en pelo ingles e guarda o portugues em data-pt (para o botao PT)."""
+    def troca(m):
+        tag, a1, en, a2, pt = m.groups()
+        return f'<{tag}{a1} data-en="{en}" data-pt="{pt.replace("&", "&amp;").replace(chr(34), "&quot;")}"{a2}>{en}</{tag}>'
+    html = _TAG_EN.sub(troca, html)
+    for pt, en in _ALT_EN.items():
+        html = html.replace(f'alt="{pt}"', f'alt="{en}"')
+    return html.replace('aria-label="Mudar idioma / Change language">EN<', 'aria-label="Mudar idioma / Change language">PT<')
+
+
+def _faq_html() -> str:
+    return "\n".join(f'    <details><summary data-en="{_esc(qe)}">{qp}</summary><p data-en="{ae.replace(chr(34), "&quot;")}">{ap}</p></details>'
+                     for qp, ap, qe, ae in FAQ)
+
+
+def _jsonld(idioma: str) -> str:
+    b = _base(); en = idioma == "en"
+    url = f"{b}/en/" if en else f"{b}/"
+    org, pessoa, site = f"{b}/#org", f"{b}/#antonio", f"{b}/#website"
+    sem_html = lambda t: re.sub(r"<[^>]+>", "", t)
+    grafo = [
+        {"@type": ["Organization", "ProfessionalService"], "@id": org, "name": "Viral Media", "url": f"{b}/",
+         "logo": f"{b}/static/icon-512.png", "image": f"{b}/static/og.png",
+         "description": TEXTOS[idioma]["desc"], "founder": {"@id": pessoa}, "employee": {"@id": pessoa},
+         "areaServed": [{"@type": "Country", "name": "Brazil"}, "Worldwide"],
+         "knowsLanguage": ["pt-BR", "en"], "sameAs": PERFIS,
+         "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "telephone": "+55 35 99118-7683",
+                          "url": WHATSAPP, "availableLanguage": ["Portuguese", "English"]},
+         "knowsAbout": ["Artificial intelligence", "AI chatbots", "Progressive Web Apps", "Landing pages", "Python",
+                        "FastAPI", "Make.com", "ChatGPT", "Claude", "Prompt engineering", "Logo design"],
+         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services" if en else "Serviços",
+                             "itemListElement": [{"@type": "Offer", "itemOffered": {
+                                 "@type": "Service", "name": s[2] if en else s[0], "description": s[3] if en else s[1],
+                                 "provider": {"@id": org}, "areaServed": "Worldwide"}} for s in SERVICOS]}},
+        {"@type": "Person", "@id": pessoa, "name": "Antonio Rocha", "url": f"{b}/#sobre",
+         "image": f"{b}/static/antonio.jpg", "jobTitle": "AI, web app and automation developer" if en else "Desenvolvedor de IA, apps web e automações",
+         "worksFor": {"@id": org}, "knowsLanguage": ["pt-BR", "en"], "sameAs": PERFIS + [f"{DEMOS}/"],
+         "knowsAbout": ["Python", "FastAPI", "AI chatbots", "PWA", "Make.com", "Prompt engineering"]},
+        {"@type": "WebSite", "@id": site, "url": f"{b}/", "name": "Viral Media", "inLanguage": ["pt-BR", "en"],
+         "publisher": {"@id": org}},
+        {"@type": "WebPage", "@id": f"{url}#pagina", "url": url, "name": TEXTOS[idioma]["title"],
+         "description": TEXTOS[idioma]["desc"], "inLanguage": TEXTOS[idioma]["lang"], "isPartOf": {"@id": site},
+         "about": {"@id": org}, "primaryImageOfPage": {"@type": "ImageObject", "url": f"{b}/static/og.png", "width": 1200, "height": 630}},
+        {"@type": "FAQPage", "@id": f"{url}#faq", "url": url, "inLanguage": TEXTOS[idioma]["lang"], "isPartOf": {"@id": site},
+         "mainEntity": [{"@type": "Question", "name": q[2] if en else q[0],
+                         "acceptedAnswer": {"@type": "Answer", "text": sem_html(q[3] if en else q[1])}} for q in FAQ]},
+    ]
+    return json.dumps({"@context": "https://schema.org", "@graph": grafo}, ensure_ascii=False).replace("</", "<\\/")
+
+
+def _pagina(req: Request, idioma: str) -> HTMLResponse:
+    t = TEXTOS[idioma]; b = _base(req)
     html = (AQUI / "index.html").read_text(encoding="utf-8")
-    html = html.replace("{{VERSAO}}", VERSAO).replace("{{URL}}", _base(req))
-    cab = {"Cache-Control": "no-cache"}
+    html = html.replace("{{FAQ}}", _faq_html())
+    if idioma == "en":
+        html = _para_ingles(html)
+    troca = {"{{LANG}}": t["lang"], "{{LANGJS}}": idioma, "{{TITLE}}": _esc(t["title"]), "{{DESC}}": _esc(t["desc"]),
+             "{{OGDESC}}": _esc(t["ogdesc"]), "{{OGALT}}": _esc(t["ogalt"]), "{{OGLOCALE}}": t["oglocale"],
+             "{{OGLOCALE2}}": t["oglocale2"], "{{CANON}}": f"{b}/en/" if idioma == "en" else f"{b}/",
+             "{{HOME}}": "/en/" if idioma == "en" else "/", "{{OUTRA_URL}}": t["outra_url"], "{{OUTRA_LANG}}": t["outra_lang"],
+             "{{OUTRA_NOME}}": t["outra_nome"], "{{JSONLD}}": _jsonld(idioma), "{{VERSAO}}": VERSAO, "{{URL}}": b}
+    for k, v in troca.items():
+        html = html.replace(k, v)
+    cab = {"Cache-Control": "no-cache", "Content-Language": t["lang"],
+           "Link": f'<{b}/>; rel="alternate"; hreflang="pt-BR", <{b}/en/>; rel="alternate"; hreflang="en"'}
     if _staging(req):
         html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1)
         cab["X-Robots-Tag"] = "noindex"
     return HTMLResponse(html, headers=cab)
 
 
-@app.get("/robots.txt", response_class=PlainTextResponse)
+@app.middleware("http")
+async def cache_estaticos(request: Request, call_next):
+    resp = await call_next(request)
+    if request.url.path.startswith("/static/") and resp.status_code == 200:
+        resp.headers["Cache-Control"] = "public, max-age=604800"
+    return resp
+
+
+@app.get("/saude")
+def saude():
+    return {"ok": True, "versao": VERSAO}
+
+
+@app.api_route("/", methods=GET_HEAD, response_class=HTMLResponse)
+def inicio(req: Request):
+    return _pagina(req, "pt")
+
+
+@app.api_route("/en/", methods=GET_HEAD, response_class=HTMLResponse)
+def inicio_en(req: Request):
+    return _pagina(req, "en")
+
+
+@app.api_route("/en", methods=GET_HEAD)
+def en_sem_barra():
+    return RedirectResponse("/en/", status_code=301)
+
+
+ROBOTS_IA = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "Claude-SearchBot", "anthropic-ai",
+             "PerplexityBot", "Perplexity-User", "Google-Extended", "Googlebot", "Bingbot", "Applebot", "Applebot-Extended",
+             "DuckAssistBot", "meta-externalagent", "CCBot", "Amazonbot", "YandexBot"]
+
+
+@app.api_route("/robots.txt", methods=GET_HEAD, response_class=PlainTextResponse)
 def robots(req: Request):
     if _staging(req):
         return "User-agent: *\nDisallow: /\n"
-    return f"User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: {_base(req)}/sitemap.xml\n"
+    b = _base(req)
+    regras = "Allow: /\nDisallow: /api/\n"
+    ias = "".join(f"User-agent: {r}\n" for r in ROBOTS_IA)
+    return (f"# Viral Media ({b}): buscadores e assistentes de IA sao bem-vindos.\n"
+            f"# Resumo para IA / summary for LLMs: {b}/llms.txt\n\n"
+            f"User-agent: *\n{regras}\n{ias}{regras}\nSitemap: {b}/sitemap.xml\n")
 
 
-@app.get("/sitemap.xml")
+@app.api_route("/sitemap.xml", methods=GET_HEAD)
 def sitemap(req: Request):
-    hoje = datetime.now(timezone.utc).date().isoformat()
-    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-           f"<url><loc>{_base(req)}/</loc><lastmod>{hoje}</lastmod><priority>1.0</priority></url></urlset>\n")
-    return Response(xml, media_type="application/xml")
+    b = _base(req)
+    data = datetime.fromtimestamp((AQUI / "index.html").stat().st_mtime, timezone.utc).date().isoformat()
+    alt = (f'<xhtml:link rel="alternate" hreflang="pt-BR" href="{b}/"/><xhtml:link rel="alternate" hreflang="en" href="{b}/en/"/>'
+           f'<xhtml:link rel="alternate" hreflang="x-default" href="{b}/"/>')
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+           f"<url><loc>{b}/</loc><lastmod>{data}</lastmod><changefreq>monthly</changefreq><priority>1.0</priority>{alt}</url>\n"
+           f"<url><loc>{b}/en/</loc><lastmod>{data}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>{alt}</url>\n"
+           "</urlset>\n")
+    return Response(xml, media_type="application/xml", headers={"Cache-Control": "public, max-age=3600"})
 
 
-@app.get("/favicon.ico")
+def _texto(nome: str) -> Response:
+    return Response((AQUI / nome).read_text(encoding="utf-8"), media_type="text/plain; charset=utf-8",
+                    headers={"Cache-Control": "public, max-age=3600", "X-Robots-Tag": "noindex"})
+
+
+@app.api_route("/llms.txt", methods=GET_HEAD)
+def llms():
+    return _texto("llms.txt")
+
+
+@app.api_route("/llms-full.txt", methods=GET_HEAD)
+def llms_full():
+    return _texto("llms-full.txt")
+
+
+@app.api_route(f"/{INDEXNOW_KEY}.txt", methods=GET_HEAD)
+def indexnow_chave():
+    return PlainTextResponse(INDEXNOW_KEY)
+
+
+@app.api_route("/site.webmanifest", methods=GET_HEAD)
+def manifest():
+    return JSONResponse({"name": "Viral Media", "short_name": "Viral Media", "start_url": "/", "display": "browser",
+                         "background_color": "#F5F7FA", "theme_color": "#0F2340", "lang": "pt-BR",
+                         "icons": [{"src": "/static/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
+                                   {"src": "/static/icon-512.png", "sizes": "512x512", "type": "image/png"}]},
+                        media_type="application/manifest+json", headers={"Cache-Control": "public, max-age=86400"})
+
+
+@app.api_route("/favicon.ico", methods=GET_HEAD)
 def favicon():
     return Response((AQUI / "static" / "favicon.png").read_bytes(), media_type="image/png",
                     headers={"Cache-Control": "public, max-age=86400"})

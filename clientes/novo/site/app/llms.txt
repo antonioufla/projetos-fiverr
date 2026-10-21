@@ -1,0 +1,41 @@
+# Viral Media
+
+> Viral Media é o estúdio freelance de Antonio Rocha, desenvolvedor brasileiro que cria chatbots com IA para sites, aplicativos PWA e sistemas web, landing pages, logos, pacotes de prompts, scripts em Python e automações com Make.com para pequenas empresas. Tudo é entregue online, com atendimento em português e inglês.
+>
+> Viral Media is the freelance studio of Antonio Rocha, a Brazilian developer who builds website AI chatbots, PWA and web apps, landing pages, logos, prompt packs, Python scripts and Make.com automations for small businesses. Everything is delivered online; service in Portuguese and English.
+
+Site: https://viralmedia.vip/ (português) · https://viralmedia.vip/en/ (English)
+
+## Serviços / Services
+
+- Chatbot com IA para site / Website AI chatbot: responde aos visitantes 24 horas com as informações do negócio; instala com uma linha de código. Answers visitors 24/7 using the business's own information; installs with one line of code.
+- Apps PWA e sistemas web / PWA & web apps: aplicativos instaláveis e sistemas em Python/FastAPI, também entregues como APK de Android. Installable apps and Python/FastAPI systems, also deliverable as an Android APK.
+- Landing pages: páginas rápidas e responsivas focadas em conversão. Fast, responsive pages focused on conversion.
+- Logos e identidade visual / Logos & visual identity: logo, cores e peças básicas da marca. Logo, colors and basic brand assets.
+- Pacotes de prompts / Prompt packs: prompts testados para ChatGPT e Claude. Tested prompts for ChatGPT and Claude.
+- Scripts em Python / Python scripts: planilhas, relatórios, conversão de PDF e Excel, extração de dados. Spreadsheets, reports, PDF/Excel conversion, data extraction.
+- Automações com Make.com / Make.com automations: cenários que conectam ferramentas, com ChatGPT onde agrega valor. Scenarios connecting tools, with ChatGPT where it adds value.
+
+## Demonstrações ao vivo / Live demos
+
+- [Portfólio / Portfolio](https://demo.viralmedia.vip/): visão geral das demonstrações.
+- [Chatbot com IA / AI chatbot](https://demo.viralmedia.vip/chatbot/): site de clínica odontológica fictícia com chat que responde preços, horários e serviços.
+- [Aplicativo PWA / PWA app](https://demo.viralmedia.vip/app/): app de orçamentos e agenda que instala no celular e funciona sem internet.
+- [Landing page](https://demo.viralmedia.vip/landing/): página de energia solar com simulador de economia, planos e formulário.
+
+## Como pedir orçamento / How to request a quote
+
+- Formulário no site / Form on the website: https://viralmedia.vip/#contato
+- WhatsApp: +55 35 99118-7683 (https://wa.me/5535991187683)
+- Resposta em até um dia útil, com proposta por escrito (escopo, preço fechado e prazo) antes de começar. Reply within one business day, with a written proposal (scope, fixed price and deadline) before any work begins.
+
+## Perfis / Profiles
+
+- [Fiverr](https://www.fiverr.com/antoniorochanet)
+- [Upwork](https://www.upwork.com/freelancers/~011dc6dece52f38d35)
+- [Freelancer.com](https://www.freelancer.com/u/antoniorochaneto)
+- [99Freelas](https://www.99freelas.com.br/user/antonio-elizeu-da-rocha)
+
+## Optional
+
+- [Versão completa / Full version](https://viralmedia.vip/llms-full.txt): todo o conteúdo do site em texto, incluindo perguntas frequentes.

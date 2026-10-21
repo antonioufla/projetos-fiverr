@@ -24,7 +24,7 @@ def saude():
     return {"ok": True, "versao": VERSAO}
 
 
-@app.get("/", response_class=HTMLResponse)
+@app.api_route("/", methods=["GET", "HEAD"], response_class=HTMLResponse)
 def inicio():
     return HTMLResponse(_render("index.html"), headers={"Cache-Control": "no-cache"})
 
