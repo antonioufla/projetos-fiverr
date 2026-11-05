@@ -168,6 +168,14 @@ class PortalTests(TestCase):
             HTTP_HOST=f"{slug}.viralmedia.vip",
         )
 
+    @override_settings(ALLOWED_HOSTS=[".viralmedia.vip"])
+    def test_saude_aceita_host_do_portal_com_allowed_hosts_minimo(self):
+        ok = self.client.get("/saude", HTTP_HOST="portal.viralmedia.vip")
+        self.assertEqual(ok.status_code, 200)
+        self.assertEqual(ok.json()["ok"], True)
+        direto = self.client.get("/saude", HTTP_HOST="127.0.0.1")
+        self.assertEqual(direto.status_code, 400)
+
     def test_saude(self):
         for host in (
             "portal.viralmedia.vip",
