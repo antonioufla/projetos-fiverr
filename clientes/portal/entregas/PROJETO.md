@@ -47,11 +47,13 @@ Segredos só em `/opt/projetos-fiver/portal/entregas/.env.secrets` (o deploy cri
 
 ```
 DJANGO_SECRET_KEY=<saida de: python -c "import secrets; print(secrets.token_urlsafe(64))">
-ALLOWED_HOSTS=.viralmedia.vip
+ALLOWED_HOSTS=localhost,127.0.0.1,.viralmedia.vip
 DJANGO_SECURE_COOKIES=1
 ```
 
-Django trata `.viralmedia.vip` (ponto na frente) como o domínio e os subdomínios. Se `DJANGO_SECRET_KEY` faltar, o primeiro boot grava `/data/secret_key` (modo 600) e reutiliza. A variável de ambiente ganha das duas. Defina a chave antes de criar usuários: trocar a chave encerra as sessões. Não há senha de cliente no repositório.
+Django trata `.viralmedia.vip` (ponto na frente) como o domínio e os subdomínios. `localhost` e `127.0.0.1` ficam na lista para quem chama o processo por dentro da máquina. O healthcheck da imagem pede `http://127.0.0.1:8000/saude` com `Host: portal.viralmedia.vip`, então o container continua healthy mesmo se `ALLOWED_HOSTS` for só `.viralmedia.vip`. Sem esse Host o Django responde 400, o Docker marca o container unhealthy e o Traefik v3 tira o portal do ar.
+
+Se `DJANGO_SECRET_KEY` faltar, o primeiro boot grava `/data/secret_key` (modo 600) e reutiliza. A variável de ambiente ganha das duas. Defina a chave antes de criar usuários: trocar a chave encerra as sessões. Não há senha de cliente no repositório.
 
 ## Primeiro cliente
 
@@ -75,7 +77,7 @@ Usuário e senha do Bob saem por Fiverr ou e-mail, fora do Git, e só com aprova
 
 ## Subida
 
-Imagem na porta 8000, gunicorn. `GET /saude` responde 200 com `{"ok": true, "versao": "..."}`. O entrypoint roda `migrate` antes do gunicorn. `createsuperuser` continua manual:
+Imagem na porta 8000, gunicorn. `GET /saude` responde 200 com `{"ok": true, "versao": "..."}`. O healthcheck usa `Host: portal.viralmedia.vip` ao falar com `127.0.0.1:8000`. O entrypoint roda `migrate` antes do gunicorn. `createsuperuser` continua manual:
 
 ```
 docker exec -it fiverr-portal-entregas python manage.py createsuperuser
@@ -86,7 +88,7 @@ docker exec fiverr-portal-entregas python manage.py migrate
 
 - [ ] DNS A `arquivos` → 177.70.13.133 (proxied)
 - [ ] DNS A `bbrubin123` → 177.70.13.133 (proxied)
-- [ ] Segredos em `/opt/projetos-fiver/portal/entregas/.env.secrets`: `DJANGO_SECRET_KEY` e `ALLOWED_HOSTS=.viralmedia.vip` (sem senha de cliente no Git)
+- [ ] Segredos em `/opt/projetos-fiver/portal/entregas/.env.secrets`: `DJANGO_SECRET_KEY` e `ALLOWED_HOSTS=localhost,127.0.0.1,.viralmedia.vip` (sem senha de cliente no Git). O healthcheck manda `Host: portal.viralmedia.vip`
 - [ ] Volume persistente: pasta `dados` do deploy ligada a `/data` (`db.sqlite3` e `media`)
 - [ ] `migrate` (o entrypoint roda; conferir com `docker exec fiverr-portal-entregas python manage.py migrate`)
 - [ ] `createsuperuser` no container `fiverr-portal-entregas`
