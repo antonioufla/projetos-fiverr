@@ -1,0 +1,4 @@
+staticfiles/
+*.sqlite3
+.data/
+secret_key

@@ -1,0 +1,8 @@
+**/__pycache__
+**/*.py[cod]
+**/.git
+staticfiles
+data
+.data
+*.sqlite3
+secret_key

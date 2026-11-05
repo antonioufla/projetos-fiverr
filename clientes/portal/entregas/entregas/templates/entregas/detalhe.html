@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block titulo %}{{ pedido.titulo }}{% endblock %}
+{% block conteudo %}
+  <p class="meta"><a href="{% url 'inicio' %}">Todos os pedidos</a></p>
+  <div class="linha">
+    <h1>{{ pedido.titulo }}</h1>
+    <span class="selo {{ pedido.status }}">{{ pedido.get_status_display }}</span>
+  </div>
+  <p class="meta">
+    <span class="mono">{{ pedido.referencia }}</span>
+    {% if pedido.prazo %} · prazo {{ pedido.prazo|date:"d/m/Y" }}{% endif %}
+    · atualizado {{ pedido.atualizado_em|date:"d/m/Y H:i" }}
+  </p>
+  <section class="cartao">
+    <h2 style="font-size:1rem; margin:0 0 0.25rem">Arquivos</h2>
+    {% if pedido.arquivos.all %}
+      <ul class="limpo">
+        {% for arquivo in pedido.arquivos.all %}
+          <li>
+            <span>
+              {{ arquivo.rotulo }}
+              <span class="meta">
+                · {{ arquivo.enviado_em|date:"d/m/Y H:i" }}
+                {% if arquivo.tamanho_bytes %} · {{ arquivo.tamanho_bytes|filesizeformat }}{% endif %}
+              </span>
+            </span>
+            <a href="{% url 'baixar' pedido.referencia arquivo.pk %}" aria-label="Baixar {{ arquivo.rotulo }}">Baixar</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="meta" style="margin:0.5rem 0 0">Nenhum arquivo enviado ainda.</p>
+    {% endif %}
+  </section>
+{% endblock %}
