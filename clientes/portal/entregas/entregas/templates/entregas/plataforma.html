@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block titulo %}{% if mostrar_admin %}Arquivos{% else %}Portal{% endif %}{% endblock %}
+{% block conteudo %}
+  {% if mostrar_admin %}
+    <h1>Arquivos</h1>
+    <p class="meta">Gestão de clientes, pedidos e entregas.</p>
+    <p><a class="botao" href="/admin/">Abrir o admin</a></p>
+  {% else %}
+    <h1>Portal de entregas</h1>
+    <p>Cada cliente entra no próprio endereço, no formato <span class="mono">https://&lt;slug&gt;.viralmedia.vip</span>.</p>
+    <p class="meta">A equipe usa <span class="mono">arquivos.viralmedia.vip</span>.</p>
+  {% endif %}
+{% endblock %}

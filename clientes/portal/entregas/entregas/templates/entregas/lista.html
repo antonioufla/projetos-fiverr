@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block titulo %}Seus pedidos{% endblock %}
+{% block conteudo %}
+  <h1>Seus pedidos</h1>
+  <p class="meta">{{ request.cliente.nome_exibicao }}</p>
+  {% if pedidos %}
+    {% for pedido in pedidos %}
+      <a class="cartao" href="{% url 'detalhe' pedido.referencia %}">
+        <div class="linha">
+          <strong>{{ pedido.titulo }}</strong>
+          <span class="selo {{ pedido.status }}">{{ pedido.get_status_display }}</span>
+        </div>
+        <p class="meta" style="margin:0.45rem 0 0">
+          <span class="mono">{{ pedido.referencia }}</span>
+          {% if pedido.prazo %} · prazo {{ pedido.prazo|date:"d/m/Y" }}{% endif %}
+          · {{ pedido.qtd_arquivos }} arquivo{{ pedido.qtd_arquivos|pluralize:"s" }}
+        </p>
+      </a>
+    {% endfor %}
+  {% else %}
+    <p class="cartao">Nenhum pedido ainda.</p>
+  {% endif %}
+{% endblock %}
